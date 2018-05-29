@@ -29,7 +29,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/main.scss"
+              "src/main.scss",
+              "../node_modules/leaflet/dist/leaflet.css"
             ],
             "scripts": []
           },
