@@ -1,0 +1,21 @@
+{
+  "generator-ngx-rocket": {
+    "version": "5.0.0",
+    "props": {
+      "location": "path",
+      "appName": "gotoulouse",
+      "target": [
+        "web"
+      ],
+      "pwa": false,
+      "ui": "material",
+      "layout": "side-menu",
+      "auth": false,
+      "lazy": false,
+      "angulartics": false,
+      "projectName": "gotoulouse",
+      "packageManager": "npm",
+      "mobile": []
+    }
+  }
+}
