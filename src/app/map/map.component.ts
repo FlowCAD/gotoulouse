@@ -12,8 +12,8 @@ export class MapComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    let northEastBound = L.latLng(43.68, 1.68), southWestBound = L.latLng(43.52, 1.35), bounds = L.latLngBounds(northEastBound, southWestBound);
-    const mymap = L.map('map').setView([43.599560, 1.441079], 13).setMaxBounds(bounds);
+    let northEastBound = L.latLng(43.75, 1.76), southWestBound = L.latLng(43.43, 1.02), bounds = L.latLngBounds(northEastBound, southWestBound);
+    const mymap = L.map('map', {minZoom: 12}).setView([43.599560, 1.441079], 13).setMaxBounds(bounds);
     L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(mymap);
