@@ -3,8 +3,32 @@
     <!-- <mat-sidenav #sidenav [mode]="isMobile ? 'over' : 'side'" [opened]="!isMobile" [disableClose]="!isMobile"
                  ngClass.gt-sm="has-border"> -->
     <mat-sidenav #sidenav mode="over" opened="false">
-      <mat-toolbar color="primary">
+      <nav>
+        <mat-list>
+          <mat-divider></mat-divider>
+          <a mat-list-item routerLink="/home" routerLinkActive="active" (click)="isMobile && sidenav.close()">
+            <mat-icon>home</mat-icon>
+          </a>
+          <mat-divider></mat-divider>
+          <a mat-list-item routerLink="/map" routerLinkActive="active" (click)="isMobile && sidenav.close()">
+            <mat-icon>explore</mat-icon>
+          </a>
+          <mat-divider></mat-divider>
+          <a mat-list-item routerLink="/about" routerLinkActive="active" (click)="isMobile && sidenav.close()">
+            <mat-icon>more</mat-icon>
+          </a>
+          <mat-divider></mat-divider>
+        </mat-list>
+      </nav>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <mat-toolbar color="primary" class="mat-elevation-z6">
+        <button class="menu-button" mat-icon-button (click)="sidenav.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <div fxFlex></div>
         <span translate>APP_NAME</span>
+        <span>_{{title}}</span>
         <div fxFlex></div>
         <div>
           <button mat-icon-button [matMenuTriggerFor]="languageMenu">
@@ -16,31 +40,6 @@
             </button>
           </mat-menu>
         </div>
-      </mat-toolbar>
-      <nav>
-        <mat-list>
-          <mat-divider></mat-divider>
-          <a mat-list-item routerLink="/home" routerLinkActive="active" (click)="isMobile && sidenav.close()">
-            <span translate>Home</span>
-          </a>
-          <mat-divider></mat-divider>
-          <a mat-list-item routerLink="/map" routerLinkActive="active" (click)="isMobile && sidenav.close()">
-            <span translate>Map</span>
-          </a>
-          <mat-divider></mat-divider>
-          <a mat-list-item routerLink="/about" routerLinkActive="active" (click)="isMobile && sidenav.close()">
-            <span translate>About</span>
-          </a>
-          <mat-divider></mat-divider>
-        </mat-list>
-      </nav>
-    </mat-sidenav>
-    <mat-sidenav-content>
-      <mat-toolbar color="primary" class="mat-elevation-z6">
-        <button class="menu-button" mat-icon-button (click)="sidenav.toggle()">
-          <mat-icon>menu</mat-icon>
-        </button>
-        <span>{{title}}</span>
       </mat-toolbar>
       <router-outlet></router-outlet>
     </mat-sidenav-content>
