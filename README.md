@@ -1,6 +1,6 @@
 # gÔToulouse
 
-This project was generated with [ngX-Rocket](https://github.com/ngx-rocket/generator-ngx-rocket/)
+Ce projet a été generé avec [ngX-Rocket](https://github.com/ngx-rocket/generator-ngx-rocket/)
 
 ## Stack
 * Ngx-Rocket
@@ -10,13 +10,14 @@ This project was generated with [ngX-Rocket](https://github.com/ngx-rocket/gener
 * Node.js
 
 ## Todo
-1. Create a specific component for mapping
-2. Custom basic setting of webmapping
-3. Import Socket.io
-4. Create the basic backend
-5. Create the UI associated to the backend
-6. plug back <=> front with RxJS
+1. ~~Créer un composant spécifique pour la carto~~
+2. Ajouter les paramètres de bases du webmapping
+3. Personnaliser la sidebar
+4. Importer Socket.io
+5. Créer un backend basique
+6. Créer l'IHM associée au backend
+7. Brancher back <=> front avec RxJS
 
-## Data sources
+## Sources de Données
 - [Le Bonbon Toulouse](https://www.lebonbon.fr/toulouse/)
 - [Le Petit Tou](http://www.lepetittou.com/)
