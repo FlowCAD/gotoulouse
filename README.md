@@ -11,7 +11,7 @@ Ce projet a été generé avec [ngX-Rocket](https://github.com/ngx-rocket/genera
 
 ## Todo
 1. WebMap
-1. ~~Créer un composant spécifique pour la carto~~
+  1. ~~Créer un composant spécifique pour la carto~~
 2. ~~Ajouter les paramètres de bases du webmapping~~
 3. ~~Importer data métro~~
 4.  Importer data vélo
