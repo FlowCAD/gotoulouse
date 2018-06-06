@@ -24,9 +24,9 @@ export class MapComponent implements OnInit {
     iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/images/marker-icon.png'
   });
   L.marker([43.6, 1.44], {icon: myIcon}).addTo(mymap);
-
+  
   this.http.get('https://data.toulouse-metropole.fr/api/v2/catalog/datasets/stations-de-metro/records?rows=100&pretty=true&timezone=UTC').subscribe((data: any) => {
-    data.records.forEach(mydata => {
+    data.records.forEach((mydata:any) => {
       console.log(mydata);
       L.marker([mydata.record.fields.geo_shape.geometry.coordinates[1], mydata.record.fields.geo_shape.geometry.coordinates[0]], {icon: myIcon}).addTo(mymap);
     });
