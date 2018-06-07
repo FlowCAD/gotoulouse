@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import * as L from 'leaflet';
+import "leaflet.awesome-markers";
 
 @Component({
   selector: 'app-map',
@@ -25,10 +26,16 @@ export class MapComponent implements OnInit {
   });
   L.marker([43.6, 1.44], {icon: myIcon}).addTo(mymap);
   
+  const style_mapicon = L.AwesomeMarkers.icon({
+    prefix: 'fa',
+    icon: 'star',
+    markerColor: 'red'
+  });
+
   this.http.get('https://data.toulouse-metropole.fr/api/v2/catalog/datasets/stations-de-metro/records?rows=100&pretty=true&timezone=UTC').subscribe((data: any) => {
     data.records.forEach((mydata:any) => {
-      console.log(mydata);
-      L.marker([mydata.record.fields.geo_shape.geometry.coordinates[1], mydata.record.fields.geo_shape.geometry.coordinates[0]], {icon: myIcon}).addTo(mymap);
+      L.marker([mydata.record.fields.geo_shape.geometry.coordinates[1], mydata.record.fields.geo_shape.geometry.coordinates[0]], {icon: style_mapicon}).addTo(mymap);
+      console.log(mydata.record.fields);
     });
   });
 
