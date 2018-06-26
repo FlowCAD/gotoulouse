@@ -15,6 +15,7 @@ Ce projet a été generé avec [ngX-Rocket](https://github.com/ngx-rocket/genera
   2. ~~Ajouter les paramètres de bases du webmapping~~
   3. ~~Importer data métro~~
   4.  Importer data vélo
+  5. Importer les différentes symbologies
 * Design
   1. ~~Personnaliser la sidebar~~
   2. Ajouter un menu contextuel
