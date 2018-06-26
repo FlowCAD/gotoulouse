@@ -31,7 +31,7 @@
             "styles": [
               "src/main.scss",
               "node_modules/leaflet/dist/leaflet.css",
-              "node_module/leaflet.awesome-markers/dist/leaflet.awesome-markers.css"
+              "node_modules/leaflet.awesome-markers/dist/leaflet.awesome-markers.css"
             ],
             "scripts": []
           },
