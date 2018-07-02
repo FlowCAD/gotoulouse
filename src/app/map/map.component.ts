@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { OpendataService } from '../shared/opendata.service';
+import { OpendataService } from '@app/shared/opendata.service';
+import { MarkersService } from '@app/shared/markers.service';
 
 import * as L from 'leaflet';
 import 'leaflet.awesome-markers/dist/leaflet.awesome-markers';
@@ -12,7 +13,8 @@ import 'leaflet.awesome-markers/dist/leaflet.awesome-markers';
 export class MapComponent implements OnInit {
 
   constructor(
-    private data: OpendataService
+    private opendataService: OpendataService,
+    private markersService: MarkersService
   ) { }
 
   ngOnInit() {
@@ -22,26 +24,28 @@ export class MapComponent implements OnInit {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(mymap);
 
-    const subwayMarkerSymbol = L.AwesomeMarkers.icon({ icon: 'fa-subway', prefix: 'fa', markerColor: 'blue', iconColor: 'white' });
-    const bikeMarkerSymbol = L.AwesomeMarkers.icon({ icon: 'fa-bicycle', prefix: 'fa', markerColor: 'darkpurple', iconColor: 'white' });
-
-    const redMarker = L.AwesomeMarkers.icon({ icon: 'fa-car', markerColor: 'red', iconColor: 'white', prefix: 'fa' });
-    L.marker([43.61, 1.45], { icon: redMarker }).addTo(mymap);
-
-    this.data.getSubways().subscribe((data: any) => {
+    this.opendataService.getSubways().subscribe((data: any) => {
       data.records.forEach((mydata: any) => {
-        L.marker([mydata.record.fields.geo_shape.geometry.coordinates[1], mydata.record.fields.geo_shape.geometry.coordinates[0]], { icon: subwayMarkerSymbol })
+        L.marker(
+          [mydata.record.fields.geo_shape.geometry.coordinates[1], mydata.record.fields.geo_shape.geometry.coordinates[0]],
+          { icon: L.AwesomeMarkers.icon(this.markersService.getMarkerSymbol("subway")) }
+        )
           .addTo(mymap)
           .bindPopup(mydata.record.fields.nom + " (ligne " + mydata.record.fields.ligne + ")");
       });
     });
 
-    this.data.getBikes().subscribe((data: any) => {
+    this.opendataService.getBikes().subscribe((data: any) => {
       console.log(data);
       data.forEach((mydata: any) => {
-        L.marker([mydata.position.lat, mydata.position.lng], { icon: bikeMarkerSymbol })
-          .addTo(mymap)
-          .bindPopup(mydata.name + "<br /> (Vélos disponibles: " + mydata.available_bikes + ")");
+        if (mydata.status == "OPEN") {
+          L.marker(
+            [mydata.position.lat, mydata.position.lng],
+            { icon: L.AwesomeMarkers.icon(this.markersService.getMarkerSymbol("bike")) }
+          )
+            .addTo(mymap)
+            .bindPopup("<b>" + mydata.name + "</b><br /> Vélos disponibles: <b>" + mydata.available_bikes + "</b><br />Emplacements disponibles: <b>" + mydata.available_bike_stands + "</b>");
+        }
       });
     });
   }

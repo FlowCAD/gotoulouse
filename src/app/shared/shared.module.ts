@@ -5,6 +5,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from '@app/material.module';
 import { LoaderComponent } from './loader/loader.component';
 
+import { OpendataService } from '@app/shared/opendata.service';
+import { MarkersService } from '@app/shared/markers.service';
+
 @NgModule({
   imports: [
     FlexLayoutModule,
@@ -13,6 +16,10 @@ import { LoaderComponent } from './loader/loader.component';
   ],
   declarations: [
     LoaderComponent
+  ],
+  providers: [
+    OpendataService,
+    MarkersService
   ],
   exports: [
     LoaderComponent
