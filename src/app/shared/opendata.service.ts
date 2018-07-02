@@ -13,4 +13,8 @@ export class OpendataService {
   getSubways() {
     return this.http.get('https://data.toulouse-metropole.fr/api/v2/catalog/datasets/stations-de-metro/records?rows=100&pretty=true&timezone=UTC')
   }
+
+  getBikes() {
+    return this.http.get('https://api.jcdecaux.com/vls/v1/stations?contract=Toulouse&apiKey=XXXXXXXX')
+  }
 }
