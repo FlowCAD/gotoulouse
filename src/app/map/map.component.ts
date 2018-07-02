@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { OpendataService } from '../shared/opendata.service';
 
 import * as L from 'leaflet';
 import 'leaflet.awesome-markers/dist/leaflet.awesome-markers';
@@ -11,7 +11,9 @@ import 'leaflet.awesome-markers/dist/leaflet.awesome-markers';
 })
 export class MapComponent implements OnInit {
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private data: OpendataService
+  ) { }
 
   ngOnInit() {
     let northEastBound = L.latLng(43.75, 1.76), southWestBound = L.latLng(43.43, 1.02), bounds = L.latLngBounds(northEastBound, southWestBound);
@@ -25,13 +27,12 @@ export class MapComponent implements OnInit {
     const redMarker = L.AwesomeMarkers.icon({ icon: 'fa-car', markerColor: 'red', iconColor: 'white', prefix: 'fa' });
     L.marker([43.61, 1.45], { icon: redMarker }).addTo(mymap);
 
-    this.http.get('https://data.toulouse-metropole.fr/api/v2/catalog/datasets/stations-de-metro/records?rows=100&pretty=true&timezone=UTC').subscribe((data: any) => {
+    this.data.getSubways().subscribe((data: any) => {
       data.records.forEach((mydata: any) => {
         L.marker([mydata.record.fields.geo_shape.geometry.coordinates[1], mydata.record.fields.geo_shape.geometry.coordinates[0]], { icon: subwayMarkerSymbol })
           .addTo(mymap)
           .bindPopup(mydata.record.fields.nom + " (ligne " + mydata.record.fields.ligne + ")");
       });
     });
-
   }
 }
