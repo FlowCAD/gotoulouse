@@ -5,8 +5,6 @@ import { Injectable } from '@angular/core';
 })
 export class MarkersService {
 
-  constructor() { }
-
   public getMarkerSymbol(markerType: string): Object {
     switch (markerType) {
       case "home":

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+
 import { OpendataService } from '@app/shared/opendata.service';
 import { MarkersService } from '@app/shared/markers.service';
+import { ControlService } from "@app/shared/control.service";
 
 import * as L from 'leaflet';
 import 'leaflet.awesome-markers/dist/leaflet.awesome-markers';
@@ -14,15 +16,14 @@ export class MapComponent implements OnInit {
 
   constructor(
     private opendataService: OpendataService,
-    private markersService: MarkersService
+    private markersService: MarkersService,
+    private controlService: ControlService
   ) { }
 
   ngOnInit() {
     let northEastBound = L.latLng(43.75, 1.76), southWestBound = L.latLng(43.43, 1.02), bounds = L.latLngBounds(northEastBound, southWestBound);
     const mymap = L.map('map', { minZoom: 12 }).setView([43.6, 1.44], 13).setMaxBounds(bounds);
-    L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(mymap);
+    this.controlService.OSM.addTo(mymap);
 
     this.opendataService.getSubways().subscribe((data: any) => {
       data.records.forEach((mydata: any) => {
@@ -48,5 +49,8 @@ export class MapComponent implements OnInit {
         }
       });
     });
+
+    const lcontrol = L.control.layers(this.controlService.getBaseLayers()).addTo(mymap);
+
   }
 }
