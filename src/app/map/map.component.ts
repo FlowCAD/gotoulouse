@@ -27,12 +27,14 @@ export class MapComponent implements OnInit {
 
     this.opendataService.getSubways().subscribe((data: any) => {
       data.records.forEach((mydata: any) => {
+        let nomStation = mydata.record.fields.nom,
+          nomLigne = mydata.record.fields.ligne;
         L.marker(
           [mydata.record.fields.geo_shape.geometry.coordinates[1], mydata.record.fields.geo_shape.geometry.coordinates[0]],
           { icon: L.AwesomeMarkers.icon(this.markersService.getMarkerSymbol("subway")) }
         )
           .addTo(mymap)
-          .bindPopup(mydata.record.fields.nom + " (ligne " + mydata.record.fields.ligne + ")");
+          .bindPopup(`${nomStation} (ligne ${nomLigne} )`);
       });
     });
 
@@ -40,12 +42,15 @@ export class MapComponent implements OnInit {
       console.log(data);
       data.forEach((mydata: any) => {
         if (mydata.status == "OPEN") {
+          let nomStation = mydata.name,
+            veloDispo = mydata.available_bikes,
+            emplacementVeloDispo = mydata.available_bike_stands;
           L.marker(
             [mydata.position.lat, mydata.position.lng],
             { icon: L.AwesomeMarkers.icon(this.markersService.getMarkerSymbol("bike")) }
           )
             .addTo(mymap)
-            .bindPopup("<b>" + mydata.name + "</b><br /> Vélos disponibles: <b>" + mydata.available_bikes + "</b><br />Emplacements disponibles: <b>" + mydata.available_bike_stands + "</b>");
+            .bindPopup(`<b>${nomStation}</b><br /> Vélos disponibles: <b>${veloDispo}</b><br />Emplacements disponibles: <b>${emplacementVeloDispo}</b>`);
         }
       });
     });
