@@ -14,8 +14,9 @@ Ce projet a été generé avec [ngX-Rocket](https://github.com/ngx-rocket/genera
   1. ~~Créer un composant spécifique pour la carto~~
   2. ~~Ajouter les paramètres de bases du webmapping~~
   3. ~~Importer data métro~~
-  4.  Importer data vélo
-  5. Importer les différentes symbologies
+  4.  ~~Importer data vélo~~
+  5. ~~Importer les différentes symbologies~~
+  6. Faire du clustering sur la data vélo
 * Design
   1. ~~Personnaliser la sidebar~~
   2. Ajouter un menu contextuel
