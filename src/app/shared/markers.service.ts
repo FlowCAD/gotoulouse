@@ -7,29 +7,33 @@ export class MarkersService {
 
   public getMarkerSymbol(markerType: string): Object {
     switch (markerType) {
-      case "home":
+      case 'home':
         return {icon: ' fa fa-home', prefix: 'fa', color: 'green', iconColor: 'white'};
-      case "here":
+      case 'here':
         return {icon: ' fa fa-street-view', prefix: 'fa', color: 'orange', iconColor: 'white'};
-      case "subway":
+      case 'subway':
         return {icon: ' fa fa-subway', prefix: 'fa', color: 'blue', iconColor: 'white'};
-      case "bike":
-        return { icon: 'fa-bicycle', prefix: 'fa', markerColor: 'darkpurple', iconColor: 'white' };
-      case "work":
+      case 'greenBike':
+        return { icon: 'fa-bicycle', prefix: 'fa', markerColor: 'green', iconColor: 'white' };
+      case 'orangeBike':
+        return { icon: 'fa-bicycle', prefix: 'fa', markerColor: 'orange', iconColor: 'white' };
+      case 'redBike':
+        return { icon: 'fa-bicycle', prefix: 'fa', markerColor: 'red', iconColor: 'white' };
+      case 'work':
         return {icon: ' fa fa-briefcase', prefix: 'fa', color: 'darkblue', iconColor: 'white'};
-      case "shop":
+      case 'shop':
         return {icon: ' fa fa-shopping-basket', prefix: 'fa', color: 'green', iconColor: 'white'};
-      case "resto":
+      case 'resto':
         return {icon: ' fa fa-cutlery', prefix: 'fa', color: 'purple', iconColor: 'white'};
-      case "coffee":
+      case 'coffee':
         return {icon: ' fa fa-coffee', prefix: 'fa', color: 'cadetblue', iconColor: 'white'};
-      case "bar":
+      case 'bar':
         return {icon: ' fa fa-beer', prefix: 'fa', color: 'darkred', iconColor: 'white'};
-      case "club":
+      case 'club':
         return {icon: ' fa fa-glass', prefix: 'fa', color: 'red', iconColor: 'white'};
-      case "alert":
+      case 'alert':
       default:
         return {icon: ' fa fa-exclamation', prefix: 'fa', color: 'orange', iconColor: 'white'};
     }
-  };
+  }
 }
