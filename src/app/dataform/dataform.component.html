@@ -10,14 +10,14 @@
           <textarea matInput placeholder="Description du lieu" formControlName="descriptionFormControl"></textarea>
         </mat-form-field>
         <mat-form-field class="full-width-input">
-          <mat-select placeholder="Genre du lieu">
+          <mat-select placeholder="Genre du lieu" [(value)]="selectedGenre">
             <mat-option *ngFor="let genre of genres" [value]="genre">
               {{genre}}
             </mat-option>
           </mat-select>
         </mat-form-field>
         <mat-form-field class="full-width-input">
-            <mat-select placeholder="Sous-genre du lieu">
+            <mat-select placeholder="Sous-genre du lieu" [formControl]="sousGenre" multiple>
               <mat-option *ngFor="let sousGenre of sousGenres" [value]="sousGenre">
                 {{sousGenre}}
               </mat-option>

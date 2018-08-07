@@ -9,6 +9,8 @@ import { FormControl, Validators, FormBuilder, FormGroup, ReactiveFormsModule } 
 })
 export class DataFormComponent implements OnInit {
   dataForm: FormGroup;
+  selectedGenre: string;
+  sousGenre = new FormControl();
 
   genres: Array<String> = ['Magasin', 'Bar', 'Restaurant', 'Boite', 'Café'];
   sousGenres: Array<String> = [
@@ -50,6 +52,8 @@ export class DataFormComponent implements OnInit {
     if (value === true) {
       console.log('Titre: ', this.dataForm.get('titleFormControl').value);
       console.log('Description: ', this.dataForm.get('descriptionFormControl').value);
+      console.log('Genre: ', this.selectedGenre);
+      console.log('Sous-genre: ', this.sousGenre.value);
     }
   }
 }
