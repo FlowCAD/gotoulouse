@@ -1,6 +1,6 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { OpendataService } from './opendata.service';
+import { OpendataService } from '@app/shared/opendata.service';
 
 describe('OpendataService', () => {
   beforeEach(() => {

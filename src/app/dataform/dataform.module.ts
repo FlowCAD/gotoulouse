@@ -5,8 +5,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientModule } from '@angular/common/http';
 
 import { MaterialModule } from '@app/material.module';
-import { MapRoutingModule } from '@app/map/map-routing.module';
-import { MapComponent } from '@app/map/map.component';
+import { DataFormRoutingModule } from '@app/dataform/dataform-routing.module';
+import { DataFormComponent } from '@app/dataform/dataform.component';
 
 @NgModule({
   imports: [
@@ -15,10 +15,10 @@ import { MapComponent } from '@app/map/map.component';
     FlexLayoutModule,
     HttpClientModule,
     MaterialModule,
-    MapRoutingModule
+    DataFormRoutingModule
   ],
   declarations: [
-    MapComponent
+    DataFormComponent
   ]
 })
-export class MapModule { }
+export class DataFormModule { }

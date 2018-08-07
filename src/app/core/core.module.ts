@@ -6,14 +6,14 @@ import { TranslateModule } from '@ngx-translate/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { MaterialModule } from '@app/material.module';
-import { ShellComponent } from './shell/shell.component';
-import { RouteReusableStrategy } from './route-reusable-strategy';
-import { I18nService } from './i18n.service';
-import { HttpService } from './http/http.service';
-import { HttpCacheService } from './http/http-cache.service';
-import { ApiPrefixInterceptor } from './http/api-prefix.interceptor';
-import { ErrorHandlerInterceptor } from './http/error-handler.interceptor';
-import { CacheInterceptor } from './http/cache.interceptor';
+import { ShellComponent } from '@app/core/shell/shell.component';
+import { RouteReusableStrategy } from '@app/core/route-reusable-strategy';
+import { I18nService } from '@app/core/i18n.service';
+import { HttpService } from '@app/core/http/http.service';
+import { HttpCacheService } from '@app/core/http/http-cache.service';
+import { ApiPrefixInterceptor } from '@app/core/http/api-prefix.interceptor';
+import { ErrorHandlerInterceptor } from '@app/core/http/error-handler.interceptor';
+import { CacheInterceptor } from '@app/core/http/cache.interceptor';
 
 @NgModule({
   imports: [

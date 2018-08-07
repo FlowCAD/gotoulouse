@@ -4,15 +4,17 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { TranslateModule } from '@ngx-translate/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from './material.module';
+import { MaterialModule } from '@app/material.module';
 
 import { CoreModule } from '@app/core';
 import { SharedModule } from '@app/shared';
-import { HomeModule } from './home/home.module';
-import { AboutModule } from './about/about.module';
-import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
+import { HomeModule } from '@app/home/home.module';
+import { AboutModule } from '@app/about/about.module';
+import { AppComponent } from '@app/app.component';
 import { MapModule } from '@app/map/map.module';
+import { DataFormModule } from '@app/dataform/dataform.module';
+import { AppRoutingModule } from '@app/app-routing.module';
+
 
 @NgModule({
   imports: [
@@ -27,6 +29,7 @@ import { MapModule } from '@app/map/map.module';
     HomeModule,
     AboutModule,
     MapModule,
+    DataFormModule,
     AppRoutingModule
   ],
   declarations: [AppComponent],

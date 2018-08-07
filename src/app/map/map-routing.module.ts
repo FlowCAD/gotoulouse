@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { Route, extract } from '@app/core';
-import { MapComponent } from './map.component';
+import { MapComponent } from '@app/map/map.component';
 
 const routes: Routes = [
   Route.withShell([

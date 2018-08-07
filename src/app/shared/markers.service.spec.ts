@@ -1,6 +1,6 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { MarkersService } from './markers.service';
+import { MarkersService } from '@app/shared/markers.service';
 
 describe('MarkersService', () => {
   beforeEach(() => {

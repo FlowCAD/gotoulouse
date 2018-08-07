@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MapComponent } from '@app/map/map.component';
+import { DataFormComponent } from '@app/dataform/dataform.component';
 
-describe('MapComponent', () => {
-  let component: MapComponent;
-  let fixture: ComponentFixture<MapComponent>;
+describe('DataFormComponent', () => {
+  let component: DataFormComponent;
+  let fixture: ComponentFixture<DataFormComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MapComponent ]
+      declarations: [ DataFormComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MapComponent);
+    fixture = TestBed.createComponent(DataFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

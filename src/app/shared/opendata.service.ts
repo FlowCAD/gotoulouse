@@ -17,6 +17,6 @@ export class OpendataService {
 
   public getBikes() {
     // tslint:disable-next-line:max-line-length
-    return this.http.get('https://api.jcdecaux.com/vls/v1/stations?contract=Toulouse&apiKey=XXXXXXXX');
+    return this.http.get('https://api.jcdecaux.com/vls/v1/stations?contract=Toulouse&apiKey=64e3d20424d8454667fc5a996957393761019f86');
   }
 }

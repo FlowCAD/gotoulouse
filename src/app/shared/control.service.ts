@@ -9,7 +9,7 @@ export class ControlService {
   // tslint:disable-next-line:max-line-length
   private mbAttr = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' + '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' + 'Imagery © <a href="http://mapbox.com">Mapbox</a>';
   // tslint:disable-next-line:max-line-length
-  private mbUrl = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=XXXXXXXX';
+  private mbUrl = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiZmxvcmlhbmNhZG96IiwiYSI6ImNqMGkzN3ZzYzAwM3MzMm80MDZ6eGQ2bmwifQ.BMmvDcBnXoWT8waOnIKNBg';
   private osmAttr = '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors';
   private osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
   private osmHotUrl = 'http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png';

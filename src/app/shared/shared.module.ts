@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { MaterialModule } from '@app/material.module';
-import { LoaderComponent } from './loader/loader.component';
+import { LoaderComponent } from '@app/shared/loader/loader.component';
 
 import { OpendataService } from '@app/shared/opendata.service';
 import { MarkersService } from '@app/shared/markers.service';

@@ -1,7 +1,7 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { ShellComponent } from './shell/shell.component';
-import { Route } from './route.service';
+import { ShellComponent } from '@app/core/shell/shell.component';
+import { Route } from '@app/core/route.service';
 
 describe('Route', () => {
   let route: Route;
