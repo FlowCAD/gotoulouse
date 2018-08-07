@@ -17,7 +17,7 @@
             [disabled]="!dataForm.valid">
             <mat-icon>done</mat-icon>
           </button> -->
-          <button mat-mini-fab color="primary" (click)="onValidate(true)" matTooltip="Valider">
+          <button mat-mini-fab color="primary" (click)="onValidate(true)" matTooltip="Valider" [disabled]="!dataForm.valid">
             <mat-icon>done</mat-icon>
           </button>
         </div>

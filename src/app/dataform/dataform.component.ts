@@ -10,6 +10,30 @@ import { FormControl, Validators, FormBuilder, FormGroup, ReactiveFormsModule } 
 export class DataFormComponent implements OnInit {
   dataForm: FormGroup;
 
+  genre: Array<String> = ['Magasin', 'Bar', 'Restaurant', 'Boite', 'Café'];
+  sousGenre: Array<String> = [
+    'Vin & Spiritueux',
+    'Epicerie Fine',
+    'Tapas',
+    'Cuisine argentine',
+    'Cuisine mexicaine',
+    'Bar allemand',
+    'Guinguette',
+    'En terrasse',
+    'Pub',
+    'Brunch',
+    'Brasserie',
+    'Bar à cocktail',
+    'Cuisine japonaise',
+    'Cuisine traditionnelle',
+    'Cave à vin',
+    'Bar à vin',
+    'Cuisine vietnamienne',
+    'Cuisine gastronomique',
+    'Cuisine bistronomique',
+    'Cuisine italienne'
+  ];
+
   constructor(
     private formBuilder: FormBuilder
   ) { }
