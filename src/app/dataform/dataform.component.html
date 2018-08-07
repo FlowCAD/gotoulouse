@@ -1,7 +1,27 @@
 <div class="container">
   <mat-card fxFill style="padding: 0">
     <mat-card-content fxFill>
-      <p>Coucou</p>
+      <form [formGroup]="dataForm" class="form">
+        <h1>Ajouter une donnée</h1>
+        <mat-form-field class="full-width-input">
+          <input matInput placeholder="Nom du lieu" class="form-control" formControlName="titleFormControl">
+        </mat-form-field>
+        <mat-form-field class="full-width-input">
+          <textarea matInput placeholder="Description du lieu" formControlName="descriptionFormControl"></textarea>
+        </mat-form-field>
+        <div mat-dialog-actions>
+          <button mat-mini-fab color="primary" (click)="onValidate(false)" matTooltip="Annuler">
+            <mat-icon>clear</mat-icon>
+          </button>
+          <!-- <button mat-mini-fab color="primary" (click)="onValidate(true)" matTooltip="Valider"
+            [disabled]="!dataForm.valid">
+            <mat-icon>done</mat-icon>
+          </button> -->
+          <button mat-mini-fab color="primary" (click)="onValidate(true)" matTooltip="Valider">
+            <mat-icon>done</mat-icon>
+          </button>
+        </div>
+      </form>
     </mat-card-content>
   </mat-card>
 </div>
