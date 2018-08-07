@@ -9,14 +9,24 @@
         <mat-form-field class="full-width-input">
           <textarea matInput placeholder="Description du lieu" formControlName="descriptionFormControl"></textarea>
         </mat-form-field>
+        <mat-form-field class="full-width-input">
+          <mat-select placeholder="Genre du lieu">
+            <mat-option *ngFor="let genre of genres" [value]="genre">
+              {{genre}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="full-width-input">
+            <mat-select placeholder="Sous-genre du lieu">
+              <mat-option *ngFor="let sousGenre of sousGenres" [value]="sousGenre">
+                {{sousGenre}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
         <div mat-dialog-actions>
           <button mat-mini-fab color="primary" (click)="onValidate(false)" matTooltip="Annuler">
             <mat-icon>clear</mat-icon>
           </button>
-          <!-- <button mat-mini-fab color="primary" (click)="onValidate(true)" matTooltip="Valider"
-            [disabled]="!dataForm.valid">
-            <mat-icon>done</mat-icon>
-          </button> -->
           <button mat-mini-fab color="primary" (click)="onValidate(true)" matTooltip="Valider" [disabled]="!dataForm.valid">
             <mat-icon>done</mat-icon>
           </button>

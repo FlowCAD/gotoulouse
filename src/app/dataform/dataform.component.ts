@@ -10,8 +10,8 @@ import { FormControl, Validators, FormBuilder, FormGroup, ReactiveFormsModule } 
 export class DataFormComponent implements OnInit {
   dataForm: FormGroup;
 
-  genre: Array<String> = ['Magasin', 'Bar', 'Restaurant', 'Boite', 'Café'];
-  sousGenre: Array<String> = [
+  genres: Array<String> = ['Magasin', 'Bar', 'Restaurant', 'Boite', 'Café'];
+  sousGenres: Array<String> = [
     'Vin & Spiritueux',
     'Epicerie Fine',
     'Tapas',
