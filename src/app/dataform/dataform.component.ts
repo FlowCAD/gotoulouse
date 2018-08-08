@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { FormControl, Validators, FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
@@ -11,7 +11,6 @@ export class DataFormComponent implements OnInit {
   dataForm: FormGroup;
   selectedGenre: string;
   sousGenre = new FormControl();
-
   genres: Array<String> = ['Magasin', 'Bar', 'Restaurant', 'Boite', 'Café'];
   sousGenres: Array<String> = [
     'Vin & Spiritueux',
@@ -35,6 +34,8 @@ export class DataFormComponent implements OnInit {
     'Cuisine bistronomique',
     'Cuisine italienne'
   ];
+  @Input() lat: string;
+  @Input() lng: string;
 
   constructor(
     private formBuilder: FormBuilder
@@ -43,6 +44,8 @@ export class DataFormComponent implements OnInit {
   ngOnInit() {
     this.dataForm = this.formBuilder.group({
       titleFormControl: ['', [Validators.required]],
+      latFormControl: [''],
+      lngFormControl: [''],
       descriptionFormControl: ['']
     });
   }
@@ -51,6 +54,8 @@ export class DataFormComponent implements OnInit {
     console.log('validation');
     if (value === true) {
       console.log('Titre: ', this.dataForm.get('titleFormControl').value);
+      console.log('Latitude: ', this.lat);
+      console.log('Longitude: ', this.lng);
       console.log('Description: ', this.dataForm.get('descriptionFormControl').value);
       console.log('Genre: ', this.selectedGenre);
       console.log('Sous-genre: ', this.sousGenre.value);
