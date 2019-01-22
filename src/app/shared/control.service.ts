@@ -10,6 +10,12 @@ export class ControlService {
   private mbAttr = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' + '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' + 'Imagery © <a href="http://mapbox.com">Mapbox</a>';
   // tslint:disable-next-line:max-line-length
   private mbUrl = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiZmxvcmlhbmNhZG96IiwiYSI6ImNqMGkzN3ZzYzAwM3MzMm80MDZ6eGQ2bmwifQ.BMmvDcBnXoWT8waOnIKNBg';
+  // tslint:disable-next-line:max-line-length
+  private mbUrlLight = 'https://api.tiles.mapbox.com/v4/mapbox.light/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiZmxvcmlhbmNhZG96IiwiYSI6ImNqMGkzN3ZzYzAwM3MzMm80MDZ6eGQ2bmwifQ.BMmvDcBnXoWT8waOnIKNBg';
+  // tslint:disable-next-line:max-line-length
+  private mbUrlSat = 'https://api.tiles.mapbox.com/v4/mapbox.satellite/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiZmxvcmlhbmNhZG96IiwiYSI6ImNqMGkzN3ZzYzAwM3MzMm80MDZ6eGQ2bmwifQ.BMmvDcBnXoWT8waOnIKNBg';
+  // tslint:disable-next-line:max-line-length
+  private mbUrlStreets = 'https://api.tiles.mapbox.com/v4/mapbox.streets/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiZmxvcmlhbmNhZG96IiwiYSI6ImNqMGkzN3ZzYzAwM3MzMm80MDZ6eGQ2bmwifQ.BMmvDcBnXoWT8waOnIKNBg';
   private osmAttr = '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors';
   private osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
   private osmHotUrl = 'http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png';
@@ -23,15 +29,15 @@ export class ControlService {
   }
 
   public get MBGrey(): any {
-    return L.tileLayer(this.mbUrl, { id: 'mapbox.light', attribution: this.mbAttr });
+    return L.tileLayer(this.mbUrlLight, { attribution: this.mbAttr });
   }
 
   public get MBSat(): any {
-    return L.tileLayer(this.mbUrl, { id: 'mapbox.satellite', attribution: this.mbAttr });
+    return L.tileLayer(this.mbUrlSat, { attribution: this.mbAttr });
   }
 
   public get MBStreets(): any {
-    return L.tileLayer(this.mbUrl, { id: 'mapbox.streets', attribution: this.mbAttr });
+    return L.tileLayer(this.mbUrlStreets, { attribution: this.mbAttr });
   }
 
   public getBaseLayers() {
