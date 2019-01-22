@@ -9,20 +9,12 @@ import { OpendataService } from '@app/shared/opendata.service';
 import { MarkersService } from '@app/shared/markers.service';
 
 @NgModule({
-  imports: [
-    FlexLayoutModule,
-    MaterialModule,
-    CommonModule
-  ],
-  declarations: [
-    LoaderComponent
-  ],
+  imports: [FlexLayoutModule, MaterialModule, CommonModule],
+  declarations: [LoaderComponent],
   providers: [
     OpendataService,
     MarkersService
   ],
-  exports: [
-    LoaderComponent
-  ]
+  exports: [LoaderComponent]
 })
-export class SharedModule { }
+export class SharedModule {}

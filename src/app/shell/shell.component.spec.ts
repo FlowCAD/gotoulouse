@@ -2,9 +2,12 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { TranslateModule } from '@ngx-translate/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MaterialModule } from '@app/material.module';
 
-import { CoreModule } from '@app/core/core.module';
-import { ShellComponent } from '@app/core/shell/shell.component';
+import { AuthenticationService, CoreModule, MockAuthenticationService } from '@app/core';
+
+import { ShellComponent } from './shell.component';
 
 describe('ShellComponent', () => {
   let component: ShellComponent;
@@ -16,10 +19,13 @@ describe('ShellComponent', () => {
         RouterTestingModule,
         TranslateModule.forRoot(),
         BrowserAnimationsModule,
+        FlexLayoutModule,
+        MaterialModule,
         CoreModule
-      ]
-    })
-    .compileComponents();
+      ],
+      providers: [{ provide: AuthenticationService, useClass: MockAuthenticationService }],
+      declarations: [ShellComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

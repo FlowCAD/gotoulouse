@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { Route, extract } from '@app/core';
+import { extract } from '@app/core';
+import { Shell } from '@app/shell/shell.service';
 import { DataFormComponent } from '@app/dataform/dataform.component';
 
 const routes: Routes = [
-  Route.withShell([
+  Shell.childRoutes([
     { path: 'dataform', component: DataFormComponent, data: { title: extract('Form') } }
   ])
 ];

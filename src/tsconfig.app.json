@@ -10,11 +10,7 @@
       "leaflet.markercluster"
     ]
   },
-  "exclude": [
-    "test.ts",
-    "**/*.spec.ts",
-    "**/*.mock.ts"
-  ],
+  "exclude": ["test.ts", "**/*.spec.ts", "**/*.mock.ts"],
   "angularCompilerOptions": {
     "preserveWhitespaces": true
   }

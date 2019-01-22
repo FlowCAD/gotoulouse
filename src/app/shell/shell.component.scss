@@ -4,7 +4,7 @@
 }
 
 .mat-sidenav {
-  min-width: 50px;
+  min-width: 270px;
   max-width: 28%;
 }
 
@@ -26,4 +26,10 @@
 
 .menu-button {
   margin-right: 1rem;
+}
+
+.inline-icon {
+  margin-right: 5px;
+  display: inline-flex;
+  vertical-align: middle;
 }

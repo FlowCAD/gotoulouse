@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { Route, extract } from '@app/core';
+import { extract } from '@app/core';
+import { Shell } from '@app/shell/shell.service';
 import { MapComponent } from '@app/map/map.component';
 
 const routes: Routes = [
-  Route.withShell([
+  Shell.childRoutes([
     { path: 'map', component: MapComponent, data: { title: extract('Map') } }
   ])
 ];
