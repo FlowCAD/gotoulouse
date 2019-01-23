@@ -1,10 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 import { FormControl, Validators, FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { Subscription } from 'rxjs';
 
 import { DataService } from '@app/shared/services/data.service';
 
-import { EnumGenres, EnumSousGenres } from '@app/shared/interface';
+import { EnumGenres, EnumSousGenres, Genre } from '@app/shared/interface';
 
 @Component({
   selector: 'app-dataform',
@@ -15,7 +16,9 @@ export class DataFormComponent implements OnInit {
   dataForm: FormGroup;
   selectedGenre: string;
   sousGenre = new FormControl();
-  public genres: any[] = [];
+
+  public genres: Genre[];
+  public genreSubscription: Subscription;
   public sousGenres: any[] = [];
 
   @Input() lat: string;
@@ -27,13 +30,15 @@ export class DataFormComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    Object.keys(EnumGenres).forEach(key => {
-      this.genres.push({
-        value: key,
-        viewValue: EnumGenres[key]
-      });
-    });
+    this.dataService.getGenresFromServer();
+    this.genreSubscription = this.dataService.genresSubject.subscribe(
+      (genres: Genre[]) => {
+        this.genres = genres;
+      }
+    );
+    this.dataService.emitGenres();
 
+    // TODO Load sousgenre thanks to genres
     Object.keys(EnumSousGenres).forEach(key => {
       this.sousGenres.push({
         value: key,
@@ -59,13 +64,5 @@ export class DataFormComponent implements OnInit {
       console.log('Genre: ', this.selectedGenre);
       console.log('Sous-genre: ', this.sousGenre.value);
     }
-  }
-
-  onSave() {
-    this.dataService.saveGenresToServer();
-  }
-
-  onGet() {
-    this.dataService.getGenresFromServer();
   }
 }

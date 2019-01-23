@@ -1,43 +1,35 @@
 import { Subject } from 'rxjs';
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import * as firebase from 'firebase';
+
+import { Genre } from '@app/shared/interface';
 
 @Injectable()
 export class DataService {
-    genresSubject = new Subject<any[]>();
 
-    private genres: any[] = [];
-    private places: string[];
+    public genres: Genre[] = [];
+    public genresSubject = new Subject<Genre[]>();
 
-    constructor(private httpClient: HttpClient) {}
+    // private places: string[];
 
-    public emitGenresSubject() {
-        this.genresSubject.next(this.genres.slice());
-    }
-    public saveGenresToServer() {
-        this.httpClient.put('https://gotoulouse-3d2ef.firebaseio.com/genres.json', this.genres).subscribe(
-        () => {
-            console.log('Enregistrement terminé !');
-        },
-        (error) => {
-            console.log(`Erreur ! {{error}}`);
-        });
+    constructor() {}
+
+    public emitGenres() {
+        this.genresSubject.next(this.genres);
     }
 
     public getGenresFromServer() {
-        this.httpClient.get<any[]>('https://gotoulouse-3d2ef.firebaseio.com/genres.json').subscribe(
-        (response) => {
-            this.genres = response;
-            console.log('Genres : ', response);
-            this.emitGenresSubject();
-        },
-        (error) => {
-            console.log(`Erreur ! {{error}}`);
-        }
-        );
+        firebase.database().ref('genres').on('value', (data) => {
+            this.genres = data.val() ? data.val() : [];
+            this.emitGenres();
+        });
     }
 
     // savePlacesToServer() {
+        // firebase.database().ref('places').set(this.places);
+
+        //  OU
+
     //     this.httpClient.post('https://gotoulouse-3d2ef.firebaseio.com/places.json', this.places).subscribe( () => {
     //         console.log('Enregistrement terminé !');
     //     },
