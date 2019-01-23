@@ -19,15 +19,15 @@
         </mat-form-field>
         <mat-form-field class="full-width-input">
           <mat-select placeholder="Genre du lieu" [(value)]="selectedGenre">
-            <mat-option *ngFor="let genre of genres" [value]="genre">
-              {{genre}}
+            <mat-option *ngFor="let genre of genres" [value]="genre.value">
+              {{genre.viewValue}}
             </mat-option>
           </mat-select>
         </mat-form-field>
         <mat-form-field class="full-width-input">
             <mat-select placeholder="Sous-genre du lieu" [formControl]="sousGenre" multiple>
-              <mat-option *ngFor="let sousGenre of sousGenres" [value]="sousGenre">
-                {{sousGenre}}
+              <mat-option *ngFor="let sousGenre of sousGenres" [value]="sousGenre.value">
+                {{sousGenre.viewValue}}
               </mat-option>
             </mat-select>
           </mat-form-field>
@@ -38,6 +38,8 @@
           <button mat-mini-fab color="primary" (click)="onValidate(true)" matTooltip="Valider" [disabled]="!dataForm.valid">
             <mat-icon>done</mat-icon>
           </button>
+          <button mat-fab color="accent" (click)="onSave()">Save</button>
+          <button mat-fab color="accent" (click)="onGet()">Get</button>
         </div>
       </form>
     </mat-card-content>

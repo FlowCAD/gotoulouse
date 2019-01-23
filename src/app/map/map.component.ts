@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import { OpendataService } from '@app/shared/opendata.service';
-import { MarkersService } from '@app/shared/markers.service';
-import { ControlService } from '@app/shared/control.service';
+import { OpendataService } from '@app/shared/services/opendata.service';
+import { MarkersService } from '@app/shared/services/markers.service';
+import { ControlService } from '@app/shared/services/control.service';
 
 import * as L from 'leaflet';
 import 'leaflet.awesome-markers/dist/leaflet.awesome-markers';
