@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
-
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { FormControl, Validators, FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { MatSnackBar } from '@angular/material';
+
 import { Subscription } from 'rxjs';
 
 import { DataService } from '@app/shared/services/data.service';
@@ -12,7 +13,7 @@ import { Place, EnumGenres, EnumSousGenres, Genre } from '@app/shared/interface'
   templateUrl: './dataform.component.html',
   styleUrls: ['./dataform.component.scss']
 })
-export class DataFormComponent implements OnInit {
+export class DataFormComponent implements OnInit, OnDestroy {
   dataForm: FormGroup;
   selectedGenre: string;
   sousGenre = new FormControl();
@@ -28,6 +29,7 @@ export class DataFormComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
+    private snackBar: MatSnackBar,
     private dataService: DataService
   ) { }
 
@@ -40,26 +42,25 @@ export class DataFormComponent implements OnInit {
       }
     );
     this.dataService.emitGenres();
+    this.initForm();
+  }
 
-    // TODO Load sousgenre thanks to genres
-    // Object.keys(EnumSousGenres).forEach(key => {
-    //   this.sousGenres.push({
-    //     value: key,
-    //     viewValue: EnumSousGenres[key]
-    //   });
-    // });
+  ngOnDestroy() {
+    this.genresSubscription.unsubscribe();
+  }
 
+  public initForm() {
     this.dataForm = this.formBuilder.group({
       titleFormControl: ['', [Validators.required]],
-      latFormControl: [''],
-      lngFormControl: [''],
+      latFormControl: ['', [Validators.required]],
+      lngFormControl: ['', [Validators.required]],
       descriptionFormControl: [''],
-      genreControl: ['']/*,
+      genreControl: ['', [Validators.required]]/*,
       sousGenreControl: ['']*/
     });
   }
 
-  onValidate(): void {
+  public onValidate(): void {
     const newPlace: Place = {
       nom: this.dataForm.get('titleFormControl').value,
       latitude: this.dataForm.get('latFormControl').value,
@@ -73,5 +74,15 @@ export class DataFormComponent implements OnInit {
     };
     console.log('newPlace: ', newPlace);
     this.dataService.addNewPlace(newPlace);
+    this.openSnackBar('Lieu sauvegardé');
+    this.initForm();
+  }
+
+  private openSnackBar(message: string): void {
+    this.snackBar.open(message, 'OK', {
+      duration: 10000,
+      horizontalPosition: 'center',
+      verticalPosition: 'bottom'
+    });
   }
 }
