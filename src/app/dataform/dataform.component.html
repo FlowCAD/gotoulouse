@@ -1,7 +1,7 @@
 <div class="container">
   <mat-card fxFill style="padding: 0">
     <mat-card-content fxFill>
-      <form [formGroup]="dataForm" class="form">
+      <form [formGroup]="dataForm" class="form" (ngSubmit)="onValidate()">
         <h1>Ajouter une donnée</h1>
         <mat-form-field class="full-width-input">
           <input matInput placeholder="Nom du lieu" formControlName="titleFormControl">
@@ -30,10 +30,10 @@
             </mat-select>
           </mat-form-field>
         <div mat-dialog-actions>
-          <button mat-mini-fab color="primary" (click)="onValidate()" matTooltip="Annuler">
+          <button mat-mini-fab color="primary" type="reset" matTooltip="Annuler">
             <mat-icon>clear</mat-icon>
           </button>
-          <button mat-mini-fab color="primary" (click)="onValidate()" matTooltip="Valider" [disabled]="!dataForm.valid">
+          <button mat-mini-fab color="primary" type="submit" matTooltip="Valider" [disabled]="!dataForm.valid">
             <mat-icon>done</mat-icon>
           </button>
         </div>

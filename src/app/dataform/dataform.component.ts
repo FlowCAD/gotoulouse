@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { FormControl, Validators, FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBar } from '@angular/material';
 
@@ -13,7 +13,7 @@ import { Place, EnumGenres, EnumSousGenres, Genre } from '@app/shared/interface'
   templateUrl: './dataform.component.html',
   styleUrls: ['./dataform.component.scss']
 })
-export class DataFormComponent implements OnInit {
+export class DataFormComponent implements OnInit, OnDestroy {
   dataForm: FormGroup;
   selectedGenre: string;
   sousGenre = new FormControl();
@@ -42,16 +42,11 @@ export class DataFormComponent implements OnInit {
       }
     );
     this.dataService.emitGenres();
-
-    // TODO Load sousgenre thanks to genres
-    // Object.keys(EnumSousGenres).forEach(key => {
-    //   this.sousGenres.push({
-    //     value: key,
-    //     viewValue: EnumSousGenres[key]
-    //   });
-    // });
-
     this.initForm();
+  }
+
+  ngOnDestroy() {
+    this.genresSubscription.unsubscribe();
   }
 
   public initForm() {
