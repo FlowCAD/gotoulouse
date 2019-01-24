@@ -42,6 +42,8 @@ export class DataService {
 
     public addNewPlace(newPlace: Place) {
         this.places.push(newPlace);
+        console.log('this.places', this.places);
+        console.log('newPlace', newPlace);
         this.savePlacesToServer();
         this.emitPlaces();
     }

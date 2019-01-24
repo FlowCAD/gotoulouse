@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-
 import { FormControl, Validators, FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { MatSnackBar } from '@angular/material';
+
 import { Subscription } from 'rxjs';
 
 import { DataService } from '@app/shared/services/data.service';
@@ -28,6 +29,7 @@ export class DataFormComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
+    private snackBar: MatSnackBar,
     private dataService: DataService
   ) { }
 
@@ -49,17 +51,21 @@ export class DataFormComponent implements OnInit {
     //   });
     // });
 
+    this.initForm();
+  }
+
+  public initForm() {
     this.dataForm = this.formBuilder.group({
       titleFormControl: ['', [Validators.required]],
-      latFormControl: [''],
-      lngFormControl: [''],
+      latFormControl: ['', [Validators.required]],
+      lngFormControl: ['', [Validators.required]],
       descriptionFormControl: [''],
-      genreControl: ['']/*,
+      genreControl: ['', [Validators.required]]/*,
       sousGenreControl: ['']*/
     });
   }
 
-  onValidate(): void {
+  public onValidate(): void {
     const newPlace: Place = {
       nom: this.dataForm.get('titleFormControl').value,
       latitude: this.dataForm.get('latFormControl').value,
@@ -73,5 +79,15 @@ export class DataFormComponent implements OnInit {
     };
     console.log('newPlace: ', newPlace);
     this.dataService.addNewPlace(newPlace);
+    this.openSnackBar('Lieu sauvegardé');
+    this.initForm();
+  }
+
+  private openSnackBar(message: string): void {
+    this.snackBar.open(message, 'OK', {
+      duration: 10000,
+      horizontalPosition: 'center',
+      verticalPosition: 'bottom'
+    });
   }
 }
