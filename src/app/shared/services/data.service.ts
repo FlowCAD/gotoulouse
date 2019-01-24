@@ -2,15 +2,15 @@ import { Subject } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { database } from 'firebase';
 
-import { Genre } from '@app/shared/interface';
+import { Genre, Place } from '@app/shared/interface';
 
 @Injectable()
 export class DataService {
 
     public genres: Genre[] = [];
     public genresSubject = new Subject<Genre[]>();
-
-    // private places: string[];
+    public places: Place[];
+    public placesSubject = new Subject<Place[]>();
 
     constructor() {}
 
@@ -25,16 +25,24 @@ export class DataService {
         });
     }
 
-    // savePlacesToServer() {
-        // firebase.database().ref('places').set(this.places);
+    public emitPlaces() {
+        this.placesSubject.next(this.places);
+    }
 
-        //  OU
+    public savePlacesToServer() {
+        database().ref('places').set(this.places);
+    }
 
-    //     this.httpClient.post('https://gotoulouse-3d2ef.firebaseio.com/places.json', this.places).subscribe( () => {
-    //         console.log('Enregistrement terminé !');
-    //     },
-    //     (error) => {
-    //         console.log(`Erreur ! {{error}}`);
-    //     });
-    // }
+    public getPlacesFormServer() {
+        database().ref('places').on('value', (data) => {
+            this.places = data.val() ? data.val() : [];
+            this.emitPlaces();
+        });
+    }
+
+    public addNewPlace(newPlace: Place) {
+        this.places.push(newPlace);
+        this.savePlacesToServer();
+        this.emitPlaces();
+    }
 }

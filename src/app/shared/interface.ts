@@ -1,4 +1,4 @@
-export interface Lieu {
+export interface Place {
     nom: string;
     latitude: number;
     longitude: number;
