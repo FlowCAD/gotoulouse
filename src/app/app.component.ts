@@ -9,6 +9,8 @@ import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 import { environment } from '@env/environment';
 import { Logger, I18nService } from '@app/core';
 
+import * as firebase from 'firebase';
+
 const log = new Logger('App');
 
 @Component({
@@ -26,7 +28,17 @@ export class AppComponent implements OnInit {
     // this injection initializes page tracking through the router
     private angulartics2GoogleAnalytics: Angulartics2GoogleAnalytics,
     private i18nService: I18nService
-  ) {}
+  ) {
+    const config = {
+      apiKey: 'AIzaSyBPlklm_VDFDuYrv9jfZc3zOz43VzPrbgY',
+      authDomain: 'gotoulouse-3d2ef.firebaseapp.com',
+      databaseURL: 'https://gotoulouse-3d2ef.firebaseio.com',
+      projectId: 'gotoulouse-3d2ef',
+      storageBucket: 'gotoulouse-3d2ef.appspot.com',
+      messagingSenderId: '378684092665'
+    };
+    firebase.initializeApp(config);
+  }
 
   ngOnInit() {
     // Setup logger
