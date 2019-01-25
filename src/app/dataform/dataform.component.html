@@ -13,9 +13,6 @@
           <input matInput type="number" placeholder="Longitude" formControlName="lngFormControl" />
         </mat-form-field>
         <mat-form-field class="full-width-input">
-          <textarea matInput placeholder="Description du lieu" formControlName="descriptionFormControl"></textarea>
-        </mat-form-field>
-        <mat-form-field class="full-width-input">
           <mat-select placeholder="Genre du lieu" [(value)]="selectedGenre" formControlName="genreFormControl">
             <mat-option *ngFor="let genre of genres" [value]="genre">
               {{ genre.nom }}
@@ -28,6 +25,9 @@
               {{ sousGenre.nom }}
             </mat-option>
           </mat-select>
+        </mat-form-field>
+        <mat-form-field class="full-width-input">
+          <textarea matInput placeholder="Description du lieu" formControlName="descriptionFormControl"></textarea>
         </mat-form-field>
         <div mat-dialog-actions>
           <button mat-mini-fab color="primary" type="reset" matTooltip="Annuler">

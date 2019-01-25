@@ -3,8 +3,8 @@ export interface Place {
   latitude: number;
   longitude: number;
   description?: string;
-  genre: EnumGenres;
-  sous_genre?: EnumSousGenres[];
+  genre: Genre;
+  sous_genre?: SousGenre[];
   date_creation: string;
   creator: string;
 }
