@@ -1,0 +1,138 @@
+{
+  "genres": [
+    {
+      "id": "MAGASIN",
+      "nom": "Magasin",
+      "sous_genres": [
+        {
+          "id": "VIN_SPRIRIT",
+          "nom": "Vin & Spiritueux"
+        },
+        {
+          "id": "EPICERIE_FINE",
+          "nom": "Epicerie Fine"
+        }
+      ]
+    },
+    {
+      "id": "BAR",
+      "nom": "Bar",
+      "sous_genres": [
+        {
+          "id": "TAPAS",
+          "nom": "Tapas"
+        },
+        {
+          "id": "BAR_ALLEMAND",
+          "nom": "Bar allemand"
+        },
+        {
+          "id": "GUINGUETTE",
+          "nom": "Guinguette"
+        },
+        {
+          "id": "TERRASSE",
+          "nom": "En terrasse"
+        },
+        {
+          "id": "PUB",
+          "nom": "Pub"
+        },
+        {
+          "id": "BRASSERIE",
+          "nom": "Brasserie"
+        },
+        {
+          "id": "COCKTAIL",
+          "nom": "Bar à cocktail"
+        },
+        {
+          "id": "BAR_VIN",
+          "nom": "Bar à vin"
+        },
+        {
+          "id": "BRUNCH",
+          "nom": "Brunch"
+        }
+      ]
+    },
+    {
+      "id": "RESTAURANT",
+      "nom": "Restaurant",
+      "sous_genres": [
+        {
+          "id": "TAPAS",
+          "nom": "Tapas"
+        },
+        {
+          "id": "CUISINE_ARG",
+          "nom": "Cuisine argentine"
+        },
+        {
+          "id": "CUISINE_MEX",
+          "nom": "Cuisine mexicaine"
+        },
+        {
+          "id": "CUISINE_JAP",
+          "nom": "Cuisine japonaise"
+        },
+        {
+          "id": "CUISINE_VIET",
+          "nom": "Cuisine vietnamienne"
+        },
+        {
+          "id": "CUISINE_ITA",
+          "nom": "Cuisine italienne"
+        },
+        {
+          "id": "CUISINE_TRAD",
+          "nom": "Cuisine traditionnelle"
+        },
+        {
+          "id": "CUISINE_GASTRO",
+          "nom": "Cuisine gastronomique"
+        },
+        {
+          "id": "CUISINE_BISTRO",
+          "nom": "Cuisine bistronomique"
+        },
+        {
+          "id": "BRUNCH",
+          "nom": "Brunch"
+        }
+      ]
+    },
+    {
+      "id": "BOITE",
+      "nom": "Boite",
+      "sous_genres": [
+        {
+          "id": "TAPAS",
+          "nom": "Tapas"
+        },
+        {
+          "id": "TERRASSE",
+          "nom": "En terrasse"
+        },
+        {
+          "id": "GUINGUETTE",
+          "nom": "Guinguette"
+        }
+      ]
+    },
+    {
+      "id": "CAFE",
+      "nom": "Café",
+      "sous_genres": [
+        {
+          "id": "TERRASSE",
+          "nom": "En terrasse"
+        },
+        {
+          "id": "BRUNCH",
+          "nom": "Brunch"
+        }
+      ]
+    }
+  ]
+}
