@@ -53,14 +53,17 @@ export class DataFormComponent implements OnInit, OnDestroy {
   }
 
   public onValidate(): void {
+    const newPlaceName = this.dataForm.get('titleFormControl').value;
+    const newPlaceDate = new Date().toUTCString();
     const newPlace: Place = {
-      nom: this.dataForm.get('titleFormControl').value,
+      id: newPlaceDate + '--' + newPlaceName,
+      nom: newPlaceName,
       latitude: this.dataForm.get('latFormControl').value,
       longitude: this.dataForm.get('lngFormControl').value,
       description: this.dataForm.get('descriptionFormControl').value,
       genre: this.dataForm.get('genreFormControl').value,
       sous_genre: this.dataForm.get('sousGenreFormControl').value,
-      date_creation: new Date().toUTCString(),
+      date_creation: newPlaceDate,
       creator: 'Admin'
     };
     console.log('newPlace: ', newPlace);
