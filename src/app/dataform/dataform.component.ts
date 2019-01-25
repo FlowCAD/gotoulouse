@@ -41,6 +41,7 @@ export class DataFormComponent implements OnInit, OnDestroy {
   }
 
   public initForm() {
+    this.selectedGenre = null;
     this.dataForm = this.formBuilder.group({
       titleFormControl: ['', [Validators.required]],
       latFormControl: ['', [Validators.required]],
