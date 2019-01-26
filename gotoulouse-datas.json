@@ -15,48 +15,6 @@
       ]
     },
     {
-      "id": "BAR",
-      "nom": "Bar",
-      "sous_genres": [
-        {
-          "id": "TAPAS",
-          "nom": "Tapas"
-        },
-        {
-          "id": "BAR_ALLEMAND",
-          "nom": "Bar allemand"
-        },
-        {
-          "id": "GUINGUETTE",
-          "nom": "Guinguette"
-        },
-        {
-          "id": "TERRASSE",
-          "nom": "En terrasse"
-        },
-        {
-          "id": "PUB",
-          "nom": "Pub"
-        },
-        {
-          "id": "BRASSERIE",
-          "nom": "Brasserie"
-        },
-        {
-          "id": "COCKTAIL",
-          "nom": "Bar à cocktail"
-        },
-        {
-          "id": "BAR_VIN",
-          "nom": "Bar à vin"
-        },
-        {
-          "id": "BRUNCH",
-          "nom": "Brunch"
-        }
-      ]
-    },
-    {
       "id": "RESTAURANT",
       "nom": "Restaurant",
       "sous_genres": [
@@ -103,24 +61,6 @@
       ]
     },
     {
-      "id": "BOITE",
-      "nom": "Boite",
-      "sous_genres": [
-        {
-          "id": "TAPAS",
-          "nom": "Tapas"
-        },
-        {
-          "id": "TERRASSE",
-          "nom": "En terrasse"
-        },
-        {
-          "id": "GUINGUETTE",
-          "nom": "Guinguette"
-        }
-      ]
-    },
-    {
       "id": "CAFE",
       "nom": "Café",
       "sous_genres": [
@@ -131,6 +71,70 @@
         {
           "id": "BRUNCH",
           "nom": "Brunch"
+        }
+      ]
+    },
+    {
+      "id": "BAR",
+      "nom": "Bar",
+      "sous_genres": [
+        {
+          "id": "TAPAS",
+          "nom": "Tapas"
+        },
+        {
+          "id": "BAR_ALLEMAND",
+          "nom": "Bar allemand"
+        },
+        {
+          "id": "GUINGUETTE",
+          "nom": "Guinguette"
+        },
+        {
+          "id": "TERRASSE",
+          "nom": "En terrasse"
+        },
+        {
+          "id": "PUB",
+          "nom": "Pub"
+        },
+        {
+          "id": "BRASSERIE",
+          "nom": "Brasserie"
+        },
+        {
+          "id": "COCKTAIL",
+          "nom": "Bar à cocktail"
+        },
+        {
+          "id": "BAR_VIN",
+          "nom": "Bar à vin"
+        },
+        {
+          "id": "BRUNCH",
+          "nom": "Brunch"
+        },
+        {
+          "id": "CONCERT",
+          "nom": "Concert"
+        },
+        {
+          "id": "BABYFOOT",
+          "nom": "Avec Babyfoot"
+        }
+      ]
+    },
+    {
+      "id": "ALLTHENIGHT",
+      "nom": "All The Night",
+      "sous_genres": [
+        {
+          "id": "BOITE",
+          "nom": "Boite de nuit"
+        },
+        {
+          "id": "CONCERT",
+          "nom": "Salle de concert"
         }
       ]
     }
