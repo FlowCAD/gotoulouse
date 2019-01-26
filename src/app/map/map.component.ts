@@ -7,6 +7,9 @@ import { ControlService } from '@app/shared/services/control.service';
 import * as L from 'leaflet';
 import 'leaflet.awesome-markers/dist/leaflet.awesome-markers';
 import 'leaflet.markercluster/dist/leaflet.markercluster';
+import { Subscription } from 'rxjs';
+
+import { Place } from '@app/shared/interface';
 
 @Component({
   selector: 'app-map',
@@ -14,17 +17,23 @@ import 'leaflet.markercluster/dist/leaflet.markercluster';
   styleUrls: ['./map.component.scss']
 })
 export class MapComponent implements OnInit {
+  private places: Place[];
+  private placesSubscription: Subscription;
 
   constructor(
     private opendataService: OpendataService,
     private markersService: MarkersService,
     private controlService: ControlService
-  ) { }
+  ) {}
 
   ngOnInit() {
     // tslint:disable-next-line:max-line-length
-    const northEastBound = L.latLng(43.75, 1.76), southWestBound = L.latLng(43.43, 1.02), bounds = L.latLngBounds(northEastBound, southWestBound);
-    const mymap = L.map('map', { minZoom: 12, maxZoom: 18 }).setView([43.6, 1.44], 13).setMaxBounds(bounds);
+    const northEastBound = L.latLng(43.75, 1.76),
+      southWestBound = L.latLng(43.43, 1.02),
+      bounds = L.latLngBounds(northEastBound, southWestBound);
+    const mymap = L.map('map', { minZoom: 12, maxZoom: 18 })
+      .setView([43.6, 1.44], 13)
+      .setMaxBounds(bounds);
     this.controlService.OSM.addTo(mymap);
 
     this.opendataService.getSubways().subscribe((data: any) => {
@@ -33,7 +42,10 @@ export class MapComponent implements OnInit {
           nomLigne = mydata.record.fields.ligne;
         L.marker(
           // tslint:disable-next-line:max-line-length
-          [mydata.record.fields.geo_shape.geometry.coordinates[1], mydata.record.fields.geo_shape.geometry.coordinates[0]],
+          [
+            mydata.record.fields.geo_shape.geometry.coordinates[1],
+            mydata.record.fields.geo_shape.geometry.coordinates[0]
+          ],
           { icon: L.AwesomeMarkers.icon(this.markersService.getMarkerSymbol('subway')) }
         )
           .addTo(mymap)
@@ -58,12 +70,13 @@ export class MapComponent implements OnInit {
             bikeSymbol = 'greenBike';
           }
           markers.addLayer(
-            L.marker(
-              [mydata.position.lat, mydata.position.lng],
-              { icon: L.AwesomeMarkers.icon(this.markersService.getMarkerSymbol(bikeSymbol)) }
-            )
-            // tslint:disable-next-line:max-line-length
-            .bindPopup(`<b>${nomStation}</b><br /> Vélos disponibles: <b>${veloDispo}</b><br />Emplacements disponibles: <b>${emplacementVeloDispo}</b>`)
+            L.marker([mydata.position.lat, mydata.position.lng], {
+              icon: L.AwesomeMarkers.icon(this.markersService.getMarkerSymbol(bikeSymbol))
+            })
+              // tslint:disable-next-line:max-line-length
+              .bindPopup(
+                `<b>${nomStation}</b><br /> Vélos disponibles: <b>${veloDispo}</b><br />Emplacements disponibles: <b>${emplacementVeloDispo}</b>`
+              )
           );
         }
       });
@@ -71,6 +84,5 @@ export class MapComponent implements OnInit {
     });
 
     const lcontrol = L.control.layers(this.controlService.getBaseLayers()).addTo(mymap);
-
   }
 }

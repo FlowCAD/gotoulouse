@@ -1,11 +1,10 @@
-import { Component, OnInit, OnDestroy, Input } from '@angular/core';
-import { FormControl, Validators, FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { MatSnackBar } from '@angular/material';
 
 import { Subscription } from 'rxjs';
 
 import { DataService } from '@app/shared/services/data.service';
-
 import { Place, Genre } from '@app/shared/interface';
 
 @Component({
@@ -14,15 +13,10 @@ import { Place, Genre } from '@app/shared/interface';
   styleUrls: ['./dataform.component.scss']
 })
 export class DataFormComponent implements OnInit, OnDestroy {
-  dataForm: FormGroup;
-  selectedGenre: string;
-  sousGenre = new FormControl();
-
+  public dataForm: FormGroup;
   public genres: Genre[];
-  public genresSubscription: Subscription;
-  public sousGenres: any[] = [];
-  public places: Place[];
-  public placesSubscription: Subscription;
+  public selectedGenre: string;
+  private genresSubscription: Subscription;
 
   constructor(private formBuilder: FormBuilder, private snackBar: MatSnackBar, private dataService: DataService) {}
 
@@ -40,18 +34,6 @@ export class DataFormComponent implements OnInit, OnDestroy {
     this.genresSubscription.unsubscribe();
   }
 
-  public initForm() {
-    this.selectedGenre = null;
-    this.dataForm = this.formBuilder.group({
-      titleFormControl: ['', [Validators.required]],
-      latFormControl: ['', [Validators.required]],
-      lngFormControl: ['', [Validators.required]],
-      descriptionFormControl: [''],
-      genreFormControl: ['', [Validators.required]],
-      sousGenreFormControl: [[]]
-    });
-  }
-
   public onValidate(): void {
     const newPlaceName = this.dataForm.get('titleFormControl').value;
     const newPlaceDate = new Date().toUTCString();
@@ -66,10 +48,21 @@ export class DataFormComponent implements OnInit, OnDestroy {
       date_creation: newPlaceDate,
       creator: 'Admin'
     };
-    console.log('newPlace: ', newPlace);
     this.dataService.addNewPlace(newPlace);
     this.openSnackBar('Lieu sauvegardé');
     this.initForm();
+  }
+
+  private initForm() {
+    this.selectedGenre = null;
+    this.dataForm = this.formBuilder.group({
+      titleFormControl: ['', [Validators.required]],
+      latFormControl: ['', [Validators.required]],
+      lngFormControl: ['', [Validators.required]],
+      descriptionFormControl: [''],
+      genreFormControl: ['', [Validators.required]],
+      sousGenreFormControl: [[]]
+    });
   }
 
   private openSnackBar(message: string): void {
