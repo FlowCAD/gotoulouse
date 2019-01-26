@@ -30,12 +30,6 @@ export class DataService {
     this.placesSubject.next(this.places);
   }
 
-  public savePlacesToServer() {
-    database()
-      .ref('places')
-      .set(this.places);
-  }
-
   public getPlacesFormServer() {
     database()
       .ref('places')
@@ -50,5 +44,11 @@ export class DataService {
     console.log('newPlace', newPlace);
     this.savePlacesToServer();
     this.emitPlaces();
+  }
+
+  private savePlacesToServer() {
+    database()
+      .ref('places')
+      .set(this.places);
   }
 }
