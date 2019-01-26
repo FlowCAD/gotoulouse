@@ -135,6 +135,14 @@
         {
           "id": "CONCERT",
           "nom": "Salle de concert"
+        },
+        {
+          "id": "ASSO",
+          "nom": "Bar asso"
+        },
+        {
+          "id": "CLANDESTINO",
+          "nom": "Bar clandestin"
         }
       ]
     }
