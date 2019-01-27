@@ -35,7 +35,7 @@ export class MarkersService {
     }
   }
 
-  private createFA(icon: string, markerColor: string, iconColor: string) {
+  private createFA(icon: string, markerColor: string, iconColor: string): MarkerSymbol {
     return new MarkerSymbol(icon, 'fa', markerColor, iconColor);
   }
 }
