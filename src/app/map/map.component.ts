@@ -1,46 +1,61 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 import { OpendataService } from '@app/shared/services/opendata.service';
 import { MarkersService } from '@app/shared/services/markers.service';
 import { ControlService } from '@app/shared/services/control.service';
+import { DataService } from '@app/shared/services/data.service';
 
 import * as L from 'leaflet';
 import 'leaflet.awesome-markers/dist/leaflet.awesome-markers';
 import 'leaflet.markercluster/dist/leaflet.markercluster';
+import { Subscription } from 'rxjs';
+
+import { Place } from '@app/shared/interface';
 
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.scss']
 })
-export class MapComponent implements OnInit {
+export class MapComponent implements OnInit, OnDestroy {
+  public mymap: any;
+  public lcontrol: any;
+  private places: Place[];
+  private placesSubscription: Subscription;
 
   constructor(
     private opendataService: OpendataService,
     private markersService: MarkersService,
-    private controlService: ControlService
-  ) { }
+    private controlService: ControlService,
+    private dataService: DataService
+  ) {}
 
   ngOnInit() {
     // tslint:disable-next-line:max-line-length
-    const northEastBound = L.latLng(43.75, 1.76), southWestBound = L.latLng(43.43, 1.02), bounds = L.latLngBounds(northEastBound, southWestBound);
-    const mymap = L.map('map', { minZoom: 12, maxZoom: 18 }).setView([43.6, 1.44], 13).setMaxBounds(bounds);
-    this.controlService.OSM.addTo(mymap);
+    const northEastBound = L.latLng(43.75, 1.76),
+      southWestBound = L.latLng(43.43, 1.02),
+      bounds = L.latLngBounds(northEastBound, southWestBound);
+    this.mymap = L.map('map', { minZoom: 12, maxZoom: 18 })
+      .setView([43.6, 1.44], 13)
+      .setMaxBounds(bounds);
+    this.controlService.OSM.addTo(this.mymap);
 
-    this.opendataService.getSubways().subscribe((data: any) => {
-      data.records.forEach((mydata: any) => {
-        const nomStation = mydata.record.fields.nom,
-          nomLigne = mydata.record.fields.ligne;
-        L.marker(
-          // tslint:disable-next-line:max-line-length
-          [mydata.record.fields.geo_shape.geometry.coordinates[1], mydata.record.fields.geo_shape.geometry.coordinates[0]],
-          { icon: L.AwesomeMarkers.icon(this.markersService.getMarkerSymbol('subway')) }
-        )
-          .addTo(mymap)
-          .bindPopup(`${nomStation} (ligne ${nomLigne} )`);
-      });
-    });
+    this.getDatas();
 
+    this.lcontrol = L.control.layers(this.controlService.getBaseLayers()).addTo(this.mymap);
+  }
+
+  ngOnDestroy() {
+    // this.placesSubscription.unsubscribe();
+  }
+
+  private getDatas() {
+    this.getBikes();
+    this.getSubways();
+    this.getPlaces();
+  }
+
+  private getBikes() {
     this.opendataService.getBikes().subscribe((data: any) => {
       console.log(data);
       const markers = L.markerClusterGroup();
@@ -58,19 +73,38 @@ export class MapComponent implements OnInit {
             bikeSymbol = 'greenBike';
           }
           markers.addLayer(
-            L.marker(
-              [mydata.position.lat, mydata.position.lng],
-              { icon: L.AwesomeMarkers.icon(this.markersService.getMarkerSymbol(bikeSymbol)) }
+            L.marker([mydata.position.lat, mydata.position.lng], {
+              icon: L.AwesomeMarkers.icon(this.markersService.getMarkerSymbol(bikeSymbol))
+            }).bindPopup(
+              // tslint:disable-next-line:max-line-length
+              `<b>${nomStation}</b><br /> Vélos disponibles: <b>${veloDispo}</b><br />Emplacements disponibles: <b>${emplacementVeloDispo}</b>`
             )
-            // tslint:disable-next-line:max-line-length
-            .bindPopup(`<b>${nomStation}</b><br /> Vélos disponibles: <b>${veloDispo}</b><br />Emplacements disponibles: <b>${emplacementVeloDispo}</b>`)
           );
         }
       });
-      mymap.addLayer(markers);
+      this.mymap.addLayer(markers);
     });
+  }
 
-    const lcontrol = L.control.layers(this.controlService.getBaseLayers()).addTo(mymap);
+  private getSubways() {
+    this.opendataService.getSubways().subscribe((data: any) => {
+      data.records.forEach((mydata: any) => {
+        const nomStation = mydata.record.fields.nom,
+          nomLigne = mydata.record.fields.ligne;
+        L.marker(
+          [
+            mydata.record.fields.geo_shape.geometry.coordinates[1],
+            mydata.record.fields.geo_shape.geometry.coordinates[0]
+          ],
+          { icon: L.AwesomeMarkers.icon(this.markersService.getMarkerSymbol('subway')) }
+        )
+          .addTo(this.mymap)
+          .bindPopup(`${nomStation} (ligne ${nomLigne} )`);
+      });
+    });
+  }
 
+  private getPlaces() {
+    this.dataService.getPlacesFormServer();
   }
 }
