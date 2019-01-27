@@ -21,6 +21,8 @@ export class MapComponent implements OnInit, OnDestroy {
   public lcontrol: any;
   public places: Place[];
   private placesSubscription: Subscription;
+  private subwaySubscription: Subscription;
+  private bikeSubscription: Subscription;
 
   constructor(
     private opendataService: OpendataService,
@@ -37,6 +39,8 @@ export class MapComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.placesSubscription.unsubscribe();
+    this.bikeSubscription.unsubscribe();
+    this.subwaySubscription.unsubscribe();
   }
 
   private setMapParam() {
@@ -56,7 +60,7 @@ export class MapComponent implements OnInit, OnDestroy {
   }
 
   private getBikes() {
-    this.opendataService.getBikes().subscribe((data: any) => {
+    this.bikeSubscription = this.opendataService.getBikes().subscribe((data: any) => {
       const markers = L.markerClusterGroup();
       data.forEach((mydata: any) => {
         if (mydata.status === 'OPEN') {
@@ -86,7 +90,7 @@ export class MapComponent implements OnInit, OnDestroy {
   }
 
   private getSubways() {
-    this.opendataService.getSubways().subscribe((data: any) => {
+    this.subwaySubscription = this.opendataService.getSubways().subscribe((data: any) => {
       data.records.forEach((mydata: any) => {
         const nomStation = mydata.record.fields.nom,
           nomLigne = mydata.record.fields.ligne;
