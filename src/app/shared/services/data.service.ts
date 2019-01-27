@@ -46,7 +46,7 @@ export class DataService {
     this.emitPlaces();
   }
 
-  private savePlacesToServer() {
+  public savePlacesToServer() {
     database()
       .ref('places')
       .set(this.places);
