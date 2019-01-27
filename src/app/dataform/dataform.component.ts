@@ -22,7 +22,6 @@ export class DataFormComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.dataService.getGenresFromServer();
-    this.dataService.getPlacesFormServer();
     this.genresSubscription = this.dataService.genresSubject.subscribe((genres: Genre[]) => {
       this.genres = genres;
     });
@@ -49,7 +48,7 @@ export class DataFormComponent implements OnInit, OnDestroy {
       creator: 'Admin'
     };
     this.dataService.addNewPlace(newPlace);
-    this.openSnackBar('Lieu sauvegardé');
+    this.openSnackBar(`Lieu sauvegardé : ${newPlaceName}`);
     this.initForm();
   }
 
