@@ -146,5 +146,405 @@
         }
       ]
     }
+  ],
+  "places": [
+    {
+      "creator": "Admin",
+      "date_creation": "Sat, 26 Jan 2019 18:08:21 GMT",
+      "description": "",
+      "genre": {
+        "id": "BAR",
+        "nom": "Bar",
+        "sous_genres": [
+          {
+            "id": "TAPAS",
+            "nom": "Tapas"
+          },
+          {
+            "id": "BAR_ALLEMAND",
+            "nom": "Bar allemand"
+          },
+          {
+            "id": "GUINGUETTE",
+            "nom": "Guinguette"
+          },
+          {
+            "id": "TERRASSE",
+            "nom": "En terrasse"
+          },
+          {
+            "id": "PUB",
+            "nom": "Pub"
+          },
+          {
+            "id": "BRASSERIE",
+            "nom": "Brasserie"
+          },
+          {
+            "id": "COCKTAIL",
+            "nom": "Bar à cocktail"
+          },
+          {
+            "id": "BAR_VIN",
+            "nom": "Bar à vin"
+          },
+          {
+            "id": "BRUNCH",
+            "nom": "Brunch"
+          },
+          {
+            "id": "CONCERT",
+            "nom": "Concert"
+          },
+          {
+            "id": "BABYFOOT",
+            "nom": "Avec Babyfoot"
+          }
+        ]
+      },
+      "id": "Sat, 26 Jan 2019 18:08:21 GMT--Le Biergarten",
+      "latitude": 43.5885,
+      "longitude": 1.4464,
+      "nom": "Le Biergarten",
+      "sous_genre": [
+        {
+          "id": "BAR_ALLEMAND",
+          "nom": "Bar allemand"
+        },
+        {
+          "id": "GUINGUETTE",
+          "nom": "Guinguette"
+        },
+        {
+          "id": "TERRASSE",
+          "nom": "En terrasse"
+        }
+      ]
+    },
+    {
+      "creator": "Admin",
+      "date_creation": "Sat, 26 Jan 2019 18:28:05 GMT",
+      "description": "",
+      "genre": {
+        "id": "BAR",
+        "nom": "Bar",
+        "sous_genres": [
+          {
+            "id": "TAPAS",
+            "nom": "Tapas"
+          },
+          {
+            "id": "BAR_ALLEMAND",
+            "nom": "Bar allemand"
+          },
+          {
+            "id": "GUINGUETTE",
+            "nom": "Guinguette"
+          },
+          {
+            "id": "TERRASSE",
+            "nom": "En terrasse"
+          },
+          {
+            "id": "PUB",
+            "nom": "Pub"
+          },
+          {
+            "id": "BRASSERIE",
+            "nom": "Brasserie"
+          },
+          {
+            "id": "COCKTAIL",
+            "nom": "Bar à cocktail"
+          },
+          {
+            "id": "BAR_VIN",
+            "nom": "Bar à vin"
+          },
+          {
+            "id": "BRUNCH",
+            "nom": "Brunch"
+          },
+          {
+            "id": "CONCERT",
+            "nom": "Concert"
+          },
+          {
+            "id": "BABYFOOT",
+            "nom": "Avec Babyfoot"
+          }
+        ]
+      },
+      "id": "Sat, 26 Jan 2019 18:28:05 GMT--The Black Lion",
+      "latitude": 43.5923,
+      "longitude": 1.4438,
+      "nom": "The Black Lion",
+      "sous_genre": [
+        {
+          "id": "PUB",
+          "nom": "Pub"
+        }
+      ]
+    },
+    {
+      "creator": "Admin",
+      "date_creation": "Sun, 27 Jan 2019 01:26:58 GMT",
+      "description": "",
+      "genre": {
+        "id": "BAR",
+        "nom": "Bar",
+        "sous_genres": [
+          {
+            "id": "TAPAS",
+            "nom": "Tapas"
+          },
+          {
+            "id": "BAR_ALLEMAND",
+            "nom": "Bar allemand"
+          },
+          {
+            "id": "GUINGUETTE",
+            "nom": "Guinguette"
+          },
+          {
+            "id": "TERRASSE",
+            "nom": "En terrasse"
+          },
+          {
+            "id": "PUB",
+            "nom": "Pub"
+          },
+          {
+            "id": "BRASSERIE",
+            "nom": "Brasserie"
+          },
+          {
+            "id": "COCKTAIL",
+            "nom": "Bar à cocktail"
+          },
+          {
+            "id": "BAR_VIN",
+            "nom": "Bar à vin"
+          },
+          {
+            "id": "BRUNCH",
+            "nom": "Brunch"
+          },
+          {
+            "id": "CONCERT",
+            "nom": "Concert"
+          },
+          {
+            "id": "BABYFOOT",
+            "nom": "Avec Babyfoot"
+          }
+        ]
+      },
+      "id": "Sun, 27 Jan 2019 01:26:58 GMT--The Danu",
+      "latitude": 43.6007,
+      "longitude": 1.4559,
+      "nom": "The Danu",
+      "sous_genre": [
+        {
+          "id": "PUB",
+          "nom": "Pub"
+        }
+      ]
+    },
+    {
+      "creator": "Admin",
+      "date_creation": "Sun, 27 Jan 2019 01:41:27 GMT",
+      "description": "",
+      "genre": {
+        "id": "BAR",
+        "nom": "Bar",
+        "sous_genres": [
+          {
+            "id": "TAPAS",
+            "nom": "Tapas"
+          },
+          {
+            "id": "BAR_ALLEMAND",
+            "nom": "Bar allemand"
+          },
+          {
+            "id": "GUINGUETTE",
+            "nom": "Guinguette"
+          },
+          {
+            "id": "TERRASSE",
+            "nom": "En terrasse"
+          },
+          {
+            "id": "PUB",
+            "nom": "Pub"
+          },
+          {
+            "id": "BRASSERIE",
+            "nom": "Brasserie"
+          },
+          {
+            "id": "COCKTAIL",
+            "nom": "Bar à cocktail"
+          },
+          {
+            "id": "BAR_VIN",
+            "nom": "Bar à vin"
+          },
+          {
+            "id": "BRUNCH",
+            "nom": "Brunch"
+          },
+          {
+            "id": "CONCERT",
+            "nom": "Concert"
+          },
+          {
+            "id": "BABYFOOT",
+            "nom": "Avec Babyfoot"
+          }
+        ]
+      },
+      "id": "Sun, 27 Jan 2019 01:41:27 GMT--Au Poêle de la Bête",
+      "latitude": 43.6028,
+      "longitude": 1.4541,
+      "nom": "Au Poêle de la Bête",
+      "sous_genre": [
+        {
+          "id": "BRASSERIE",
+          "nom": "Brasserie"
+        }
+      ]
+    },
+    {
+      "creator": "Admin",
+      "date_creation": "Sun, 27 Jan 2019 01:42:03 GMT",
+      "description": "",
+      "genre": {
+        "id": "BAR",
+        "nom": "Bar",
+        "sous_genres": [
+          {
+            "id": "TAPAS",
+            "nom": "Tapas"
+          },
+          {
+            "id": "BAR_ALLEMAND",
+            "nom": "Bar allemand"
+          },
+          {
+            "id": "GUINGUETTE",
+            "nom": "Guinguette"
+          },
+          {
+            "id": "TERRASSE",
+            "nom": "En terrasse"
+          },
+          {
+            "id": "PUB",
+            "nom": "Pub"
+          },
+          {
+            "id": "BRASSERIE",
+            "nom": "Brasserie"
+          },
+          {
+            "id": "COCKTAIL",
+            "nom": "Bar à cocktail"
+          },
+          {
+            "id": "BAR_VIN",
+            "nom": "Bar à vin"
+          },
+          {
+            "id": "BRUNCH",
+            "nom": "Brunch"
+          },
+          {
+            "id": "CONCERT",
+            "nom": "Concert"
+          },
+          {
+            "id": "BABYFOOT",
+            "nom": "Avec Babyfoot"
+          }
+        ]
+      },
+      "id": "Sun, 27 Jan 2019 01:42:03 GMT--La Mécanique des Fluides",
+      "latitude": 43.6072,
+      "longitude": 1.4537,
+      "nom": "La Mécanique des Fluides",
+      "sous_genre": [
+        {
+          "id": "BRASSERIE",
+          "nom": "Brasserie"
+        }
+      ]
+    },
+    {
+      "creator": "Admin",
+      "date_creation": "Sun, 27 Jan 2019 01:43:01 GMT",
+      "description": "",
+      "genre": {
+        "id": "BAR",
+        "nom": "Bar",
+        "sous_genres": [
+          {
+            "id": "TAPAS",
+            "nom": "Tapas"
+          },
+          {
+            "id": "BAR_ALLEMAND",
+            "nom": "Bar allemand"
+          },
+          {
+            "id": "GUINGUETTE",
+            "nom": "Guinguette"
+          },
+          {
+            "id": "TERRASSE",
+            "nom": "En terrasse"
+          },
+          {
+            "id": "PUB",
+            "nom": "Pub"
+          },
+          {
+            "id": "BRASSERIE",
+            "nom": "Brasserie"
+          },
+          {
+            "id": "COCKTAIL",
+            "nom": "Bar à cocktail"
+          },
+          {
+            "id": "BAR_VIN",
+            "nom": "Bar à vin"
+          },
+          {
+            "id": "BRUNCH",
+            "nom": "Brunch"
+          },
+          {
+            "id": "CONCERT",
+            "nom": "Concert"
+          },
+          {
+            "id": "BABYFOOT",
+            "nom": "Avec Babyfoot"
+          }
+        ]
+      },
+      "id": "Sun, 27 Jan 2019 01:43:01 GMT--Bar L'Autruche - Brasserie Du Bec",
+      "latitude": 43.6049,
+      "longitude": 1.4547,
+      "nom": "Bar L'Autruche - Brasserie Du Bec",
+      "sous_genre": [
+        {
+          "id": "BRASSERIE",
+          "nom": "Brasserie"
+        }
+      ]
+    }
   ]
 }
