@@ -8,7 +8,7 @@ import { Genre, Place } from '@app/shared/interface';
 export class DataService {
   public genres: Genre[] = [];
   public genresSubject = new Subject<Genre[]>();
-  public places: Place[];
+  public places: Place[] = [];
   public placesSubject = new Subject<Place[]>();
 
   constructor() {}

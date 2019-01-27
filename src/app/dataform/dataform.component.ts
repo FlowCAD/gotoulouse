@@ -21,11 +21,7 @@ export class DataFormComponent implements OnInit, OnDestroy {
   constructor(private formBuilder: FormBuilder, private snackBar: MatSnackBar, private dataService: DataService) {}
 
   ngOnInit() {
-    this.dataService.getGenresFromServer();
-    this.genresSubscription = this.dataService.genresSubject.subscribe((genres: Genre[]) => {
-      this.genres = genres;
-    });
-    this.dataService.emitGenres();
+    this.getGenre();
     this.initForm();
   }
 
@@ -62,6 +58,14 @@ export class DataFormComponent implements OnInit, OnDestroy {
       genreFormControl: ['', [Validators.required]],
       sousGenreFormControl: [[]]
     });
+  }
+
+  private getGenre() {
+    this.dataService.getGenresFromServer();
+    this.genresSubscription = this.dataService.genresSubject.subscribe((genres: Genre[]) => {
+      this.genres = genres;
+    });
+    this.dataService.emitGenres();
   }
 
   private openSnackBar(message: string): void {

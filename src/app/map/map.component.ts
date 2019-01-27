@@ -1,15 +1,14 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 
-import { OpendataService } from '@app/shared/services/opendata.service';
-import { MarkersService } from '@app/shared/services/markers.service';
-import { ControlService } from '@app/shared/services/control.service';
-import { DataService } from '@app/shared/services/data.service';
-
 import * as L from 'leaflet';
 import 'leaflet.awesome-markers/dist/leaflet.awesome-markers';
 import 'leaflet.markercluster/dist/leaflet.markercluster';
 import { Subscription } from 'rxjs';
 
+import { OpendataService } from '@app/shared/services/opendata.service';
+import { MarkersService } from '@app/shared/services/markers.service';
+import { ControlService } from '@app/shared/services/control.service';
+import { DataService } from '@app/shared/services/data.service';
 import { Place } from '@app/shared/interface';
 
 @Component({
@@ -20,7 +19,7 @@ import { Place } from '@app/shared/interface';
 export class MapComponent implements OnInit, OnDestroy {
   public mymap: any;
   public lcontrol: any;
-  private places: Place[];
+  public places: Place[];
   private placesSubscription: Subscription;
 
   constructor(
@@ -31,7 +30,16 @@ export class MapComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    // tslint:disable-next-line:max-line-length
+    this.setMapParam();
+    this.getDatas();
+    this.lcontrol = L.control.layers(this.controlService.getBaseLayers()).addTo(this.mymap);
+  }
+
+  ngOnDestroy() {
+    this.placesSubscription.unsubscribe();
+  }
+
+  private setMapParam() {
     const northEastBound = L.latLng(43.75, 1.76),
       southWestBound = L.latLng(43.43, 1.02),
       bounds = L.latLngBounds(northEastBound, southWestBound);
@@ -39,14 +47,6 @@ export class MapComponent implements OnInit, OnDestroy {
       .setView([43.6, 1.44], 13)
       .setMaxBounds(bounds);
     this.controlService.OSM.addTo(this.mymap);
-
-    this.getDatas();
-
-    this.lcontrol = L.control.layers(this.controlService.getBaseLayers()).addTo(this.mymap);
-  }
-
-  ngOnDestroy() {
-    // this.placesSubscription.unsubscribe();
   }
 
   private getDatas() {
@@ -57,7 +57,6 @@ export class MapComponent implements OnInit, OnDestroy {
 
   private getBikes() {
     this.opendataService.getBikes().subscribe((data: any) => {
-      console.log(data);
       const markers = L.markerClusterGroup();
       data.forEach((mydata: any) => {
         if (mydata.status === 'OPEN') {
@@ -106,5 +105,16 @@ export class MapComponent implements OnInit, OnDestroy {
 
   private getPlaces() {
     this.dataService.getPlacesFormServer();
+    this.placesSubscription = this.dataService.placesSubject.subscribe((places: Place[]) => {
+      places.forEach(place => {
+        L.marker([place.latitude, place.longitude], {
+          icon: L.AwesomeMarkers.icon(this.markersService.getMarkerSymbol('bar'))
+        })
+          .addTo(this.mymap)
+          .bindPopup(place.nom);
+      });
+      this.places = places;
+    });
+    this.dataService.emitPlaces();
   }
 }
