@@ -37,13 +37,13 @@ export class ControlService {
     return L.tileLayer(this.getMbUrl('mapbox.streets'), { attribution: this.mbAttr });
   }
 
-  public get BaseLayers() {
+  public getBaseLayers() {
     const baseMaps = {
       OpenStreetMap: this.OSM,
       'OSM Hot': this.OSMHot,
-      'Plan gris': this.MBGrey(),
-      Plan: this.MBStreets(),
-      Satellite: this.MBSat()
+      'Plan gris': this.MBGrey,
+      Plan: this.MBStreets,
+      Satellite: this.MBSat
     };
     return baseMaps;
   }
