@@ -5,7 +5,6 @@ import 'leaflet.awesome-markers/dist/leaflet.awesome-markers';
 import 'leaflet.markercluster/dist/leaflet.markercluster';
 import { Subscription } from 'rxjs';
 
-import { KeysService } from '@app/shared/services/keys.service';
 import { OpendataService } from '@app/shared/services/opendata.service';
 import { MarkersService } from '@app/shared/services/markers.service';
 import { ControlService } from '@app/shared/services/control.service';
@@ -20,15 +19,12 @@ import { Place } from '@app/shared/interface';
 export class MapComponent implements OnInit, OnDestroy {
   public mymap: any;
   public lcontrol: any;
-  public mbKey: string;
-  public mbKeySubscription: Subscription;
   public places: Place[];
   private placesSubscription: Subscription;
   private subwaySubscription: Subscription;
   private bikeSubscription: Subscription;
 
   constructor(
-    public keyService: KeysService,
     private opendataService: OpendataService,
     private markersService: MarkersService,
     private controlService: ControlService,
@@ -36,24 +32,15 @@ export class MapComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    this.getKey();
     this.setMapParam();
     this.getDatas();
-    this.lcontrol = L.control.layers(this.controlService.getBaseLayers(this.mbKey)).addTo(this.mymap);
+    this.lcontrol = L.control.layers(this.controlService.getBaseLayers()).addTo(this.mymap);
   }
 
   ngOnDestroy() {
     this.placesSubscription.unsubscribe();
     this.bikeSubscription.unsubscribe();
     this.subwaySubscription.unsubscribe();
-  }
-
-  public getKey() {
-    this.keyService.getMbKeyFromServer();
-    this.mbKeySubscription = this.keyService.mbKeySubject.subscribe( key => {
-      this.mbKey = key;
-    });
-    this.keyService.emitMbKey();
   }
 
   private setMapParam() {
