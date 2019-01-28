@@ -22,43 +22,44 @@ export class ControlService {
     return L.tileLayer(this.osmHotUrl, { attribution: this.osmAttr});
   }
 
-  public get MBGrey(): any {
+  public getMBGrey(mbKey: any): any {
     return L.tileLayer(
-      this.getMbUrl('mapbox.light'),
+      this.getMbUrl('mapbox.light', mbKey),
       { attribution: this.mbAttr }
     );
   }
 
-  public get MBSat(): any {
+  public getMBSat(mbKey: any): any {
     return L.tileLayer(
-      this.getMbUrl('mapbox.satellite'),
+      this.getMbUrl('mapbox.satellite', mbKey),
       { attribution: this.mbAttr }
     );
   }
 
-  public get MBStreets(): any {
+  public getMBStreets(mbKey: any): any {
     return L.tileLayer(
-      this.getMbUrl('mapbox.streets'),
+      this.getMbUrl('mapbox.streets', mbKey),
       { attribution: this.mbAttr }
     );
   }
 
-  public getBaseLayers() {
+  public getBaseLayers(mbKey: any) {
     const baseMaps = {
       'OpenStreetMap': this.OSM,
       'OSM Hot': this.OSMHot,
-      'Plan gris': this.MBGrey,
-      'Plan': this.MBStreets,
-      'Satellite': this.MBSat
+      'Plan gris': this.getMBGrey(mbKey),
+      'Plan': this.getMBStreets(mbKey),
+      'Satellite': this.getMBSat(mbKey)
     };
     return baseMaps;
   }
 
-  private get mbToken() {
-    return 'pk.eyJ1IjoiZmxvcmlhbmNhZG96IiwiYSI6ImNqMGkzN3ZzYzAwM3MzMm80MDZ6eGQ2bmwifQ.BMmvDcBnXoWT8waOnIKNBg';
-  }
+  // private get mbToken() {
+  //   return 'pk.eyJ1IjoiZmxvcmlhbmNhZG96IiwiYSI6ImNqMGkzN3ZzYzAwM3MzMm80MDZ6eGQ2bmwifQ.BMmvDcBnXoWT8waOnIKNBg';
+  // }
 
-  private getMbUrl(id: string) {
-    return this.mbUrlBase + id + '/{z}/{x}/{y}.png?access_token=' + this.mbToken;
+  private getMbUrl(id: string, mbKey: any) {
+    return this.mbUrlBase + id + '/{z}/{x}/{y}.png?access_token=' + mbKey;
+    // return this.mbUrlBase + id + '/{z}/{x}/{y}.png?access_token=' + this.mbToken;
   }
 }
