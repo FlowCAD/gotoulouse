@@ -1,39 +1,41 @@
 import { Injectable } from '@angular/core';
+import { MarkerSymbol } from '@app/shared/marker.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MarkersService {
-
   public getMarkerSymbol(markerType: string): Object {
     switch (markerType) {
       case 'home':
-        return {icon: ' fa fa-home', prefix: 'fa', color: 'green', iconColor: 'white'};
+        return this.createFA(' fa fa-home', 'green', 'white');
       case 'here':
-        return {icon: ' fa fa-street-view', prefix: 'fa', color: 'orange', iconColor: 'white'};
+        return this.createFA(' fa fa-street-view', 'orange', 'white');
       case 'subway':
-        return {icon: ' fa fa-subway', prefix: 'fa', color: 'blue', iconColor: 'white'};
+        return this.createFA(' fa fa-subway', 'darkblue', 'rgba(255,255,255,0.6)');
       case 'greenBike':
-        return { icon: 'fa-bicycle', prefix: 'fa', markerColor: 'green', iconColor: 'white' };
+        return this.createFA(' fa-bicycle', 'green', 'white');
       case 'orangeBike':
-        return { icon: 'fa-bicycle', prefix: 'fa', markerColor: 'orange', iconColor: 'white' };
+        return this.createFA(' fa-bicycle', 'orange', 'white');
       case 'redBike':
-        return { icon: 'fa-bicycle', prefix: 'fa', markerColor: 'red', iconColor: 'white' };
-      case 'work':
-        return {icon: ' fa fa-briefcase', prefix: 'fa', color: 'darkblue', iconColor: 'white'};
-      case 'shop':
-        return {icon: ' fa fa-shopping-basket', prefix: 'fa', color: 'green', iconColor: 'white'};
-      case 'resto':
-        return {icon: ' fa fa-cutlery', prefix: 'fa', color: 'purple', iconColor: 'white'};
-      case 'coffee':
-        return {icon: ' fa fa-coffee', prefix: 'fa', color: 'cadetblue', iconColor: 'white'};
-      case 'bar':
-        return {icon: ' fa fa-beer', prefix: 'fa', color: 'darkred', iconColor: 'white'};
-      case 'club':
-        return {icon: ' fa fa-glass', prefix: 'fa', color: 'red', iconColor: 'white'};
+        return this.createFA(' fa-bicycle', 'red', 'white');
+      case 'MAGASIN':
+        return this.createFA(' fa fa-shopping-basket', 'green', 'white');
+      case 'RESTAURANT':
+        return this.createFA(' fa fa-cutlery', 'purple', 'white');
+      case 'CAFE':
+        return this.createFA(' fa fa-coffee', 'cadetblue', 'white');
+      case 'BAR':
+        return this.createFA(' fa fa-beer', 'darkred', 'white');
+      case 'BOITE':
+        return this.createFA(' fa fa-glass', 'red', 'white');
       case 'alert':
       default:
-        return {icon: ' fa fa-exclamation', prefix: 'fa', color: 'orange', iconColor: 'white'};
+        return this.createFA(' fa fa-exclamation', 'orange', 'white');
     }
+  }
+
+  private createFA(icon: string, markerColor: string, iconColor: string): MarkerSymbol {
+    return new MarkerSymbol(icon, 'fa', markerColor, iconColor);
   }
 }

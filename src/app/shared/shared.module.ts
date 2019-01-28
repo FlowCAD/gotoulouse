@@ -14,12 +14,7 @@ import { DataService } from '@app/shared/services/data.service';
 @NgModule({
   imports: [FlexLayoutModule, MaterialModule, CommonModule, HttpClientModule],
   declarations: [LoaderComponent],
-  providers: [
-    OpendataService,
-    MarkersService,
-    ControlService,
-    DataService
-  ],
+  providers: [OpendataService, MarkersService, ControlService, DataService],
   exports: [LoaderComponent]
 })
 export class SharedModule {}

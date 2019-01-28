@@ -112,7 +112,7 @@ export class MapComponent implements OnInit, OnDestroy {
     this.placesSubscription = this.dataService.placesSubject.subscribe((places: Place[]) => {
       places.forEach(place => {
         L.marker([place.latitude, place.longitude], {
-          icon: L.AwesomeMarkers.icon(this.markersService.getMarkerSymbol('bar'))
+          icon: L.AwesomeMarkers.icon(this.markersService.getMarkerSymbol(place.genre.id))
         })
           .addTo(this.mymap)
           .bindPopup(place.nom);
