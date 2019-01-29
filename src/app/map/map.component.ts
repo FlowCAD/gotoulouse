@@ -68,15 +68,8 @@ export class MapComponent implements OnInit, OnDestroy {
             veloDispo = mydata.available_bikes,
             placeVeloDispo = mydata.available_bike_stands,
             dateMAJ = (new Date(mydata.last_update).toLocaleDateString()),
-            heureMAJ = (new Date(mydata.last_update).toLocaleTimeString());
-          let bikeSymbol;
-          if (veloDispo <= 0) {
-            bikeSymbol = 'redBike';
-          } else if (veloDispo <= 3) {
-            bikeSymbol = 'orangeBike';
-          } else {
-            bikeSymbol = 'greenBike';
-          }
+            heureMAJ = (new Date(mydata.last_update).toLocaleTimeString()),
+            bikeSymbol = this.getMarkerColor(veloDispo);
           markers.addLayer(
             L.marker([mydata.position.lat, mydata.position.lng], {
               icon: L.AwesomeMarkers.icon(this.markersService.getMarkerSymbol(bikeSymbol))
@@ -88,6 +81,18 @@ export class MapComponent implements OnInit, OnDestroy {
       });
       this.mymap.addLayer(markers);
     });
+  }
+
+  private getMarkerColor(nbrVeloDispo: number) {
+    let computedBikeSymbol: string;
+    if (nbrVeloDispo === 0) {
+      computedBikeSymbol = 'redBike';
+    } else if (nbrVeloDispo <= 3) {
+      computedBikeSymbol = 'orangeBike';
+    } else {
+      computedBikeSymbol = 'greenBike';
+    }
+    return computedBikeSymbol;
   }
 
   // tslint:disable-next-line:max-line-length
