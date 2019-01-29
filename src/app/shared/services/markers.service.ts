@@ -20,7 +20,7 @@ export class MarkersService {
       case 'redBike':
         return this.createFA(' fa-bicycle', 'red', 'rgba(255,255,255,0.75)');
       case 'MAGASIN':
-        return this.createFA(' fa fa-shopping-basket', 'green', 'white');
+        return this.createFA(' fa fa-shopping-basket', 'darkgreen', 'white');
       case 'RESTAURANT':
         return this.createFA(' fa fa-cutlery', 'purple', 'white');
       case 'CAFE':
