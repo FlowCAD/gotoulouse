@@ -29,7 +29,7 @@ export class MapComponent implements OnInit, OnDestroy {
     private markersService: MarkersService,
     private controlService: ControlService,
     private dataService: DataService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.setMapParam();
@@ -66,27 +66,51 @@ export class MapComponent implements OnInit, OnDestroy {
         if (mydata.status === 'OPEN') {
           const nomStation = mydata.name,
             veloDispo = mydata.available_bikes,
-            emplacementVeloDispo = mydata.available_bike_stands;
-          let bikeSymbol;
-          if (veloDispo <= 0) {
-            bikeSymbol = 'redBike';
-          } else if (veloDispo < 3) {
-            bikeSymbol = 'orangeBike';
-          } else {
-            bikeSymbol = 'greenBike';
-          }
+            placeVeloDispo = mydata.available_bike_stands,
+            dateMAJ = (new Date(mydata.last_update).toLocaleDateString()),
+            heureMAJ = (new Date(mydata.last_update).toLocaleTimeString()),
+            bikeSymbol = this.getMarkerColor(veloDispo);
           markers.addLayer(
             L.marker([mydata.position.lat, mydata.position.lng], {
               icon: L.AwesomeMarkers.icon(this.markersService.getMarkerSymbol(bikeSymbol))
             }).bindPopup(
-              // tslint:disable-next-line:max-line-length
-              `<b>${nomStation}</b><br /> Vélos disponibles: <b>${veloDispo}</b><br />Emplacements disponibles: <b>${emplacementVeloDispo}</b>`
+              this.getBikePopup(nomStation, veloDispo, placeVeloDispo, dateMAJ, heureMAJ)
             )
           );
         }
       });
       this.mymap.addLayer(markers);
     });
+  }
+
+  private getMarkerColor(nbrVeloDispo: number) {
+    let computedBikeSymbol: string;
+    if (nbrVeloDispo === 0) {
+      computedBikeSymbol = 'redBike';
+    } else if (nbrVeloDispo <= 3) {
+      computedBikeSymbol = 'orangeBike';
+    } else {
+      computedBikeSymbol = 'greenBike';
+    }
+    return computedBikeSymbol;
+  }
+
+  // tslint:disable-next-line:max-line-length
+  private getBikePopup(nomStation: string, veloDispo: string, placeVeloDispo: string, dateMAJ: string, heureMAJ: string) {
+    const bikePopup =
+      `<b>${nomStation}</b><br />` +
+      `Vélos disponibles: <b style="color:${this.getColor(veloDispo)};">${veloDispo}</b><br />` +
+      `Emplacements disponibles: <b style="color:${this.getColor(placeVeloDispo)};">${placeVeloDispo}</b><br />` +
+      `<i>Mis à jour à ${heureMAJ} le ${dateMAJ}</i>`;
+    return bikePopup;
+  }
+
+  private getColor(data: string) {
+    if (+data <= 3) {
+      return 'red';
+    } else {
+      return 'black';
+    }
   }
 
   private getSubways() {
