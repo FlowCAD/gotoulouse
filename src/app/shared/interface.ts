@@ -4,8 +4,8 @@ export interface Place {
   latitude: number;
   longitude: number;
   description?: string;
-  genre: Genre;
-  sous_genre?: SousGenre[];
+  genre: string;
+  sous_genre?: string[];
   date_creation: string;
   creator: string;
 }
@@ -25,7 +25,7 @@ export enum EnumGenres {
   MAGASIN = 'Magasin',
   BAR = 'Bar',
   RESTAURANT = 'Restaurant',
-  BOITE = 'Boite',
+  ALLTHENIGHT = 'All The Night',
   CAFE = 'Café'
 }
 

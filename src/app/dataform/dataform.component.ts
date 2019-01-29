@@ -5,7 +5,7 @@ import { MatSnackBar } from '@angular/material';
 import { Subscription } from 'rxjs';
 
 import { DataService } from '@app/shared/services/data.service';
-import { Place, Genre } from '@app/shared/interface';
+import { Place, Genre, SousGenre } from '@app/shared/interface';
 
 @Component({
   selector: 'app-dataform',
@@ -30,16 +30,20 @@ export class DataFormComponent implements OnInit, OnDestroy {
   }
 
   public onValidate(): void {
-    const newPlaceName = this.dataForm.get('titleFormControl').value;
-    const newPlaceDate = new Date().toUTCString();
+    const newPlaceName = this.dataForm.get('titleFormControl').value,
+      newPlaceDate = new Date().toUTCString(),
+      sousGenreToSend: string[] = [];
+    this.dataForm.get('sousGenreFormControl').value.forEach((sousGenre: SousGenre) => {
+      sousGenreToSend.push(sousGenre.id);
+    });
     const newPlace: Place = {
       id: newPlaceDate + '--' + newPlaceName,
       nom: newPlaceName,
       latitude: this.dataForm.get('latFormControl').value,
       longitude: this.dataForm.get('lngFormControl').value,
       description: this.dataForm.get('descriptionFormControl').value,
-      genre: this.dataForm.get('genreFormControl').value,
-      sous_genre: this.dataForm.get('sousGenreFormControl').value,
+      genre: this.dataForm.get('genreFormControl').value.id,
+      sous_genre: sousGenreToSend,
       date_creation: newPlaceDate,
       creator: 'Admin'
     };

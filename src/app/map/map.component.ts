@@ -9,7 +9,7 @@ import { OpendataService } from '@app/shared/services/opendata.service';
 import { MarkersService } from '@app/shared/services/markers.service';
 import { ControlService } from '@app/shared/services/control.service';
 import { DataService } from '@app/shared/services/data.service';
-import { Place } from '@app/shared/interface';
+import { Place, EnumGenres } from '@app/shared/interface';
 
 @Component({
   selector: 'app-map',
@@ -20,6 +20,7 @@ export class MapComponent implements OnInit, OnDestroy {
   public mymap: any;
   public lcontrol: any;
   public places: Place[];
+  public enumGenres = EnumGenres;
   private placesSubscription: Subscription;
   private subwaySubscription: Subscription;
   private bikeSubscription: Subscription;
@@ -29,7 +30,7 @@ export class MapComponent implements OnInit, OnDestroy {
     private markersService: MarkersService,
     private controlService: ControlService,
     private dataService: DataService
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.setMapParam();
@@ -67,15 +68,13 @@ export class MapComponent implements OnInit, OnDestroy {
           const nomStation = mydata.name,
             veloDispo = mydata.available_bikes,
             placeVeloDispo = mydata.available_bike_stands,
-            dateMAJ = (new Date(mydata.last_update).toLocaleDateString()),
-            heureMAJ = (new Date(mydata.last_update).toLocaleTimeString()),
+            dateMAJ = new Date(mydata.last_update).toLocaleDateString(),
+            heureMAJ = new Date(mydata.last_update).toLocaleTimeString(),
             bikeSymbol = this.getMarkerColor(veloDispo);
           markers.addLayer(
             L.marker([mydata.position.lat, mydata.position.lng], {
               icon: L.AwesomeMarkers.icon(this.markersService.getMarkerSymbol(bikeSymbol))
-            }).bindPopup(
-              this.getBikePopup(nomStation, veloDispo, placeVeloDispo, dateMAJ, heureMAJ)
-            )
+            }).bindPopup(this.getBikePopup(nomStation, veloDispo, placeVeloDispo, dateMAJ, heureMAJ))
           );
         }
       });
@@ -96,7 +95,13 @@ export class MapComponent implements OnInit, OnDestroy {
   }
 
   // tslint:disable-next-line:max-line-length
-  private getBikePopup(nomStation: string, veloDispo: string, placeVeloDispo: string, dateMAJ: string, heureMAJ: string) {
+  private getBikePopup(
+    nomStation: string,
+    veloDispo: string,
+    placeVeloDispo: string,
+    dateMAJ: string,
+    heureMAJ: string
+  ) {
     const bikePopup =
       `<b>${nomStation}</b><br />` +
       `Vélos disponibles: <b style="color:${this.getColor(veloDispo)};">${veloDispo}</b><br />` +
@@ -136,13 +141,17 @@ export class MapComponent implements OnInit, OnDestroy {
     this.placesSubscription = this.dataService.placesSubject.subscribe((places: Place[]) => {
       places.forEach(place => {
         L.marker([place.latitude, place.longitude], {
-          icon: L.AwesomeMarkers.icon(this.markersService.getMarkerSymbol(place.genre.id))
+          icon: L.AwesomeMarkers.icon(this.markersService.getMarkerSymbol(place.genre))
         })
           .addTo(this.mymap)
-          .bindPopup(place.nom);
+          .bindPopup(`<b>${place.nom}</b><br />${this.getGenreLibelle(place.genre)}`);
       });
       this.places = places;
     });
     this.dataService.emitPlaces();
+  }
+
+  private getGenreLibelle(genreId: string) {
+    return this.enumGenres[genreId];
   }
 }
