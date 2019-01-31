@@ -2,46 +2,165 @@
   "genres": [
     {
       "id": "MAGASIN",
-      "sous_genres": ["VIN_SPRIRIT", "EPICERIE_FINE"]
+      "nom": "Magasin",
+      "sous_genres": [
+        {
+          "id" : "VIN_SPIRIT",
+          "nom" : "Vin & Spiritueux"
+        },
+        {
+          "id" : "EPICERIE_FINE",
+          "nom" : "Epicerie Fine"
+        },
+        {
+          "id" : "EPICERIE_ESP",
+          "nom" : "Epicerie Fine Espagnole"
+        },
+        {
+          "id" : "EPICERIE_ITA",
+          "nom" : "Epicerie Fine Italienne"
+        },
+        {
+          "id" : "DEGUST",
+          "nom" : "Dégustation et Tapas"
+        }
+      ]
     },
     {
       "id": "RESTAURANT",
+      "nom": "Restaurant",
       "sous_genres": [
-        "TAPAS",
-        "CUISINE_ARG",
-        "CUISINE_MEX",
-        "CUISINE_JAP",
-        "CUISINE_VIET",
-        "CUISINE_ITA",
-        "CUISINE_TRAD",
-        "CUISINE_GASTRO",
-        "CUISINE_BISTRO",
-        "BRUNCH"
+        {
+          "id" : "TAPAS",
+          "nom" : "Tapas"
+        },
+        {
+          "id" : "CUISINE_ARG",
+          "nom" : "Cuisine argentine"
+        },
+        {
+          "id" : "CUISINE_MEX",
+          "nom" : "Cuisine mexicaine"
+        },
+        {
+          "id" : "CUISINE_JAP",
+          "nom" : "Cuisine japonaise"
+        },
+        {
+          "id" : "CUISINE_VIET",
+          "nom" : "Cuisine vietnamienne"
+        },
+        {
+          "id" : "CUISINE_ITA",
+          "nom" : "Cuisine italienne"
+        },
+        {
+          "id" : "CUISINE_TRAD",
+          "nom" : "Cuisine traditionnelle"
+        },
+        {
+          "id" : "CUISINE_GASTRO",
+          "nom" : "Cuisine gastronomique"
+        },
+        {
+          "id" : "CUISINE_BISTRO",
+          "nom" : "Cuisine bistronomique"
+        }
       ]
     },
     {
       "id": "CAFE",
-      "sous_genres": ["TERRASSE", "BRUNCH", "BON_CAFE"]
+      "nom": "Café",
+      "sous_genres": [
+        {
+          "id" : "TERRASSE",
+          "nom" : "En terrasse"
+        },
+        {
+          "id" : "BRUNCH",
+          "nom" : "Brunch"
+        },
+        {
+          "id" : "BON_CAFE",
+          "nom" : "Bon café"
+        },
+        {
+          "id" : "SALON_DE_THE",
+          "nom" : "Salon de thé"
+        }
+      ]
     },
     {
       "id": "BAR",
+      "nom": "Bar",
       "sous_genres": [
-        "TAPAS",
-        "BABYFOOT",
-        "BAR_ALLEMAND",
-        "GUINGUETTE",
-        "TERRASSE",
-        "PUB",
-        "BRASSERIE",
-        "COCKTAIL",
-        "BAR_VIN",
-        "BRUNCH",
-        "CONCERT"
+        {
+          "id" : "TAPAS",
+          "nom" : "Tapas"
+        },
+        {
+          "id" : "BABYFOOT",
+          "nom" : "Babyfoot"
+        },
+        {
+          "id" : "BAR_ALLEMAND",
+          "nom" : "Bar Allemand"
+        },
+        {
+          "id" : "GUINGUETTE",
+          "nom" : "Guinguette"
+        },
+        {
+          "id" : "TERRASSE",
+          "nom" : "En terrasse"
+        },
+        {
+          "id" : "PUB",
+          "nom" : "Pub"
+        },
+        {
+          "id" : "BRASSERIE",
+          "nom" : "Brasserie"
+        },
+        {
+          "id" : "COCKTAIL",
+          "nom" : "Bar à cocktail"
+        },
+        {
+          "id" : "BAR_VIN",
+          "nom" : "Bar à vin"
+        },
+        {
+          "id" : "BAR_CONCERT",
+          "nom" : "Bar concert"
+        },
+        {
+          "id" : "BRUNCH",
+          "nom" : "Brunch"
+        }
       ]
     },
     {
       "id": "ALLTHENIGHT",
-      "sous_genres": ["BOITE", "CONCERT", "ASSO", "CLANDESTINO"]
+      "nom": "All The Night",
+      "sous_genres": [
+        {
+          "id": "BOITE",
+          "nom": "Boite de nuit"
+        },
+        {
+          "id": "CONCERT",
+          "nom": "Salle de concert"
+        },
+        {
+          "id": "ASSO",
+          "nom": "Bar asso"
+        },
+        {
+          "id": "CLANDESTINO",
+          "nom": "Bar clandestin"
+        }
+      ]
     }
   ],
   "places": [

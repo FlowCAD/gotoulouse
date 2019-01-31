@@ -30,8 +30,11 @@ export enum EnumGenres {
 }
 
 export enum EnumSousGenres {
-  VIN_SPRIRIT = 'Vin & Spiritueux',
+  VIN_SPIRIT = 'Vin & Spiritueux',
   EPICERIE_FINE = 'Epicerie Fine',
+  EPICERIE_ESP = 'Epicerie Fine Espagnole',
+  EPICERIE_ITA = 'Epicerie Fine Italienne',
+  DEGUST = 'Dégustation et Tapas',
   TAPAS = 'Tapas',
   CUISINE_ARG = 'Cuisine argentine',
   CUISINE_MEX = 'Cuisine mexicaine',
@@ -52,5 +55,10 @@ export enum EnumSousGenres {
   BRASSERIE = 'Brasserie',
   COCKTAIL = 'Bar à cocktail',
   CAVE_VIN = 'Cave à vin',
-  BAR_VIN = 'Bar à vin'
+  BAR_VIN = 'Bar à vin',
+  SALON_DE_THE = 'Salon de thé',
+  BABYFOOT = 'Babyfoot',
+  BAR_CONCERT = 'Bar concert',
+  BOITE = 'Boite de nuit',
+  CONCERT = 'Salle de concert'
 }
