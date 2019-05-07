@@ -15,12 +15,11 @@ import { DataFormComponent } from '@app/dataform/dataform.component';
     TranslateModule,
     FlexLayoutModule,
     HttpClientModule,
-    FormsModule, ReactiveFormsModule,
+    FormsModule,
+    ReactiveFormsModule,
     MaterialModule,
     DataFormRoutingModule
   ],
-  declarations: [
-    DataFormComponent
-  ]
+  declarations: [DataFormComponent]
 })
-export class DataFormModule { }
+export class DataFormModule {}
