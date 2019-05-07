@@ -9,16 +9,7 @@ import { MapRoutingModule } from '@app/map/map-routing.module';
 import { MapComponent } from '@app/map/map.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    TranslateModule,
-    FlexLayoutModule,
-    HttpClientModule,
-    MaterialModule,
-    MapRoutingModule
-  ],
-  declarations: [
-    MapComponent
-  ]
+  imports: [CommonModule, TranslateModule, FlexLayoutModule, HttpClientModule, MaterialModule, MapRoutingModule],
+  declarations: [MapComponent]
 })
-export class MapModule { }
+export class MapModule {}

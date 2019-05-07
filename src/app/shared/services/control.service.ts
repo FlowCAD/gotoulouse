@@ -6,12 +6,10 @@ import * as L from 'leaflet';
   providedIn: 'root'
 })
 export class ControlService {
-  // tslint:disable-next-line:max-line-length
   private mbAttr =
     'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
     '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
     'Imagery © <a href="http://mapbox.com">Mapbox</a>';
-  // tslint:disable-next-line:max-line-length
   private mbUrlBase = 'https://api.tiles.mapbox.com/v4/';
   private osmAttr = '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors';
   private osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';

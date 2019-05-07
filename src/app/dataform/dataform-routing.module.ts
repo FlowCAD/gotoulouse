@@ -6,9 +6,7 @@ import { Shell } from '@app/shell/shell.service';
 import { DataFormComponent } from '@app/dataform/dataform.component';
 
 const routes: Routes = [
-  Shell.childRoutes([
-    { path: 'dataform', component: DataFormComponent, data: { title: extract('Form') } }
-  ])
+  Shell.childRoutes([{ path: 'dataform', component: DataFormComponent, data: { title: extract('Form') } }])
 ];
 
 @NgModule({
@@ -16,4 +14,4 @@ const routes: Routes = [
   exports: [RouterModule],
   providers: []
 })
-export class DataFormRoutingModule { }
+export class DataFormRoutingModule {}

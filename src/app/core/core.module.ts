@@ -17,9 +17,8 @@ import { ErrorHandlerInterceptor } from '@app/core/http/error-handler.intercepto
 import { CacheInterceptor } from '@app/core/http/cache.interceptor';
 
 @NgModule({
-  imports: [CommonModule, HttpClientModule, TranslateModule, FlexLayoutModule,
-    MaterialModule, RouterModule],
-    providers: [
+  imports: [CommonModule, HttpClientModule, TranslateModule, FlexLayoutModule, MaterialModule, RouterModule],
+  providers: [
     AuthenticationService,
     AuthenticationGuard,
     I18nService,
