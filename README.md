@@ -32,16 +32,11 @@ This project was generated with [ngX-Rocket](https://github.com/ngx-rocket/gener
 - [Browser routing](docs/routing.md)
 
 #### Todo
-* Mapping
-  1. ~~Clustering on bike datas~~
-  2. Display POI data
-* Frontend
-  1. ~~Custom the sidebar~~
-  2. Make the form works
-* Backend
-  1. Plug to Firebase Realtime Database
-  2. Create the auth system
-  3. Host on Firebase
+* Mapping - Filtering POI by type
+* Mapping - Displaying sub-types
+* Frontend - Setting the guard on all the pages except the map
+* Backend - Plug the auth system
+* Backend - Host on Firebase
 
 #### Data sources
 - [Le Bonbon Toulouse](https://www.lebonbon.fr/toulouse/)
