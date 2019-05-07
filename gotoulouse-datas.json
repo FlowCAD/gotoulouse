@@ -614,6 +614,17 @@
       "longitude": 1.4485,
       "nom": "Les Boulistes",
       "sous_genre": ["TAPAS", "TERRASSE"]
+    },
+    {
+      "creator" : "Admin",
+      "date_creation" : "Mon, 01 Apr 2019 15:34:02 GMT",
+      "description" : "",
+      "genre" : "BAR",
+      "id" : "Mon, 01 Apr 2019 15:34:02 GMT--l'Echanson",
+      "latitude" : 43.5996,
+      "longitude" : 1.4441,
+      "nom" : "l'Echanson",
+      "sous_genre" : [ "TAPAS", "TERRASSE", "COCKTAIL" ]
     }
   ]
 }
