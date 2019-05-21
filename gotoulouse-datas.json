@@ -558,8 +558,8 @@
       "description": "",
       "genre": "RESTAURANT",
       "id": "Thu, 21 Feb 2019 18:50:04 GMT--Chez Rosa",
-      "latitude": 43.5968,
-      "longitude": 1.4443,
+      "latitude": 43.5969,
+      "longitude": 1.4444,
       "nom": "Chez Rosa",
       "sous_genre": [
         "TAPAS",
@@ -879,6 +879,151 @@
       "sous_genre": [
         "CUISINE_TRAD",
         "CUISINE_GASTRO"
+      ]
+    },
+    {
+      "creator": "Admin",
+      "date_creation": "Tue, 21 May 2019 13:52:16 GMT",
+      "description": "Petit bar alternatif presque secret tenu par un centenaire où c'est à toi d'apporter ta boisson !",
+      "genre": "BAR",
+      "id": "Tue, 21 May 2019 13:52:16 GMT--Bleu Bleu",
+      "latitude": 43.6325,
+      "longitude": 1.4044,
+      "nom": "Bleu Bleu",
+      "sous_genre": [
+        "GUINGUETTE"
+      ]
+    },
+    {
+      "creator": "Admin",
+      "date_creation": "Tue, 21 May 2019 13:55:09 GMT",
+      "description": "",
+      "genre": "RESTAURANT",
+      "id": "Tue, 21 May 2019 13:55:09 GMT--Meet The Meat",
+      "latitude": 43.6073,
+      "longitude": 1.4474,
+      "nom": "Meet The Meat",
+      "sous_genre": [
+        "CUISINE_TRAD"
+      ]
+    },
+    {
+      "creator": "Admin",
+      "date_creation": "Tue, 21 May 2019 13:56:31 GMT",
+      "description": "",
+      "genre": "RESTAURANT",
+      "id": "Tue, 21 May 2019 13:56:31 GMT--Bàcaro",
+      "latitude": 43.6011,
+      "longitude": 1.4573,
+      "nom": "Bàcaro",
+      "sous_genre": [
+        "CUISINE_BISTRO"
+      ]
+    },
+    {
+      "creator": "Admin",
+      "date_creation": "Tue, 21 May 2019 13:57:55 GMT",
+      "description": "",
+      "genre": "RESTAURANT",
+      "id": "Tue, 21 May 2019 13:57:55 GMT--Le Carbet d'Oc",
+      "latitude": 43.5981,
+      "longitude": 1.4443,
+      "nom": "Le Carbet d'Oc",
+      "sous_genre": [
+        "CUISINE_BISTRO"
+      ]
+    },
+    {
+      "creator": "Admin",
+      "date_creation": "Tue, 21 May 2019 14:00:13 GMT",
+      "description": "",
+      "genre": "BAR",
+      "id": "Tue, 21 May 2019 14:00:13 GMT--La Tantina De Burgos",
+      "latitude": 43.5964,
+      "longitude": 1.4412,
+      "nom": "La Tantina De Burgos",
+      "sous_genre": [
+        "TAPAS"
+      ]
+    },
+    {
+      "creator": "Admin",
+      "date_creation": "Tue, 21 May 2019 14:01:14 GMT",
+      "description": "",
+      "genre": "RESTAURANT",
+      "id": "Tue, 21 May 2019 14:01:14 GMT--Borriquito Loco",
+      "latitude": 43.5988,
+      "longitude": 1.4427,
+      "nom": "Borriquito Loco",
+      "sous_genre": [
+        "TAPAS"
+      ]
+    },
+    {
+      "creator": "Admin",
+      "date_creation": "Tue, 21 May 2019 14:03:24 GMT",
+      "description": "",
+      "genre": "BAR",
+      "id": "Tue, 21 May 2019 14:03:24 GMT--Fat Cat",
+      "latitude": 43.6052,
+      "longitude": 1.4439,
+      "nom": "Fat Cat",
+      "sous_genre": [
+        "COCKTAIL"
+      ]
+    },
+    {
+      "creator": "Admin",
+      "date_creation": "Tue, 21 May 2019 14:06:45 GMT",
+      "description": "",
+      "genre": "BAR",
+      "id": "Tue, 21 May 2019 14:06:45 GMT--N°5 Wine bar",
+      "latitude": 43.6004,
+      "longitude": 1.4424,
+      "nom": "N°5 Wine bar",
+      "sous_genre": [
+        "TAPAS",
+        "BAR_VIN"
+      ]
+    },
+    {
+      "creator": "Admin",
+      "date_creation": "Tue, 21 May 2019 14:09:03 GMT",
+      "description": "",
+      "genre": "BAR",
+      "id": "Tue, 21 May 2019 14:09:03 GMT--Au Père Louis",
+      "latitude": 43.6011,
+      "longitude": 1.4449,
+      "nom": "Au Père Louis",
+      "sous_genre": [
+        "TERRASSE",
+        "BAR_VIN"
+      ]
+    },
+    {
+      "creator": "Admin",
+      "date_creation": "Tue, 21 May 2019 14:10:53 GMT",
+      "description": "",
+      "genre": "RESTAURANT",
+      "id": "Tue, 21 May 2019 14:10:53 GMT--Maître Renard",
+      "latitude": 43.5968,
+      "longitude": 1.4444,
+      "nom": "Maître Renard",
+      "sous_genre": [
+        "TAPAS"
+      ]
+    },
+    {
+      "creator": "Admin",
+      "date_creation": "Tue, 21 May 2019 14:11:59 GMT",
+      "description": "",
+      "genre": "RESTAURANT",
+      "id": "Tue, 21 May 2019 14:11:59 GMT--La Braisière",
+      "latitude": 43.5966,
+      "longitude": 1.4444,
+      "nom": "La Braisière",
+      "sous_genre": [
+        "CUISINE_TRAD"
       ]
     }
   ]
