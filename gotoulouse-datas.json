@@ -173,7 +173,11 @@
       "latitude": 43.5885,
       "longitude": 1.4464,
       "nom": "Le Biergarten",
-      "sous_genre": ["BAR_ALLEMAND", "GUINGUETTE", "TERRASSE"]
+      "sous_genre": [
+        "BAR_ALLEMAND",
+        "GUINGUETTE",
+        "TERRASSE"
+      ]
     },
     {
       "creator": "Admin",
@@ -184,7 +188,11 @@
       "latitude": 43.5923,
       "longitude": 1.4438,
       "nom": "The Black Lion",
-      "sous_genre": ["PUB", "TERRASSE", "BRUNCH"]
+      "sous_genre": [
+        "PUB",
+        "TERRASSE",
+        "BRUNCH"
+      ]
     },
     {
       "creator": "Admin",
@@ -195,7 +203,11 @@
       "latitude": 43.6007,
       "longitude": 1.4559,
       "nom": "The Danu",
-      "sous_genre": ["PUB", "BRUNCH", "TERRASSE"]
+      "sous_genre": [
+        "PUB",
+        "BRUNCH",
+        "TERRASSE"
+      ]
     },
     {
       "creator": "Admin",
@@ -206,7 +218,9 @@
       "latitude": 43.6028,
       "longitude": 1.4541,
       "nom": "Au Poêle de la Bête",
-      "sous_genre": ["BRASSERIE"]
+      "sous_genre": [
+        "BRASSERIE"
+      ]
     },
     {
       "creator": "Admin",
@@ -217,7 +231,9 @@
       "latitude": 43.6072,
       "longitude": 1.4537,
       "nom": "La Mécanique des Fluides",
-      "sous_genre": ["BRASSERIE"]
+      "sous_genre": [
+        "BRASSERIE"
+      ]
     },
     {
       "creator": "Admin",
@@ -228,7 +244,9 @@
       "latitude": 43.6049,
       "longitude": 1.4547,
       "nom": "Bar L'Autruche - Brasserie Du Bec",
-      "sous_genre": ["BRASSERIE"]
+      "sous_genre": [
+        "BRASSERIE"
+      ]
     },
     {
       "creator": "Admin",
@@ -239,7 +257,11 @@
       "latitude": 43.6055,
       "longitude": 1.4442,
       "nom": "Busquets",
-      "sous_genre": ["VIN_SPIRIT", "EPICERIE_FINE", "DEGUST"]
+      "sous_genre": [
+        "VIN_SPIRIT",
+        "EPICERIE_FINE",
+        "DEGUST"
+      ]
     },
     {
       "creator": "Admin",
@@ -250,7 +272,11 @@
       "latitude": 43.6065,
       "longitude": 1.4462,
       "nom": "Busquets",
-      "sous_genre": ["VIN_SPIRIT", "EPICERIE_FINE", "DEGUST"]
+      "sous_genre": [
+        "VIN_SPIRIT",
+        "EPICERIE_FINE",
+        "DEGUST"
+      ]
     },
     {
       "creator": "Admin",
@@ -261,7 +287,11 @@
       "latitude": 43.5949,
       "longitude": 1.4441,
       "nom": "La Tienda - Epicerie espagnole",
-      "sous_genre": ["VIN_SPIRIT", "EPICERIE_ESP", "DEGUST"]
+      "sous_genre": [
+        "VIN_SPIRIT",
+        "EPICERIE_ESP",
+        "DEGUST"
+      ]
     },
     {
       "creator": "Admin",
@@ -272,7 +302,10 @@
       "latitude": 43.5978,
       "longitude": 1.4456,
       "nom": "La Boutique des Saveurs",
-      "sous_genre": ["VIN_SPIRIT", "EPICERIE_FINE"]
+      "sous_genre": [
+        "VIN_SPIRIT",
+        "EPICERIE_FINE"
+      ]
     },
     {
       "creator": "Admin",
@@ -283,7 +316,9 @@
       "latitude": 43.6031,
       "longitude": 1.4423,
       "nom": "Caminito",
-      "sous_genre": ["CUISINE_ARG"]
+      "sous_genre": [
+        "CUISINE_ARG"
+      ]
     },
     {
       "creator": "Admin",
@@ -294,7 +329,9 @@
       "latitude": 43.6048,
       "longitude": 1.4523,
       "nom": "La Sandia",
-      "sous_genre": ["CUISINE_MEX"]
+      "sous_genre": [
+        "CUISINE_MEX"
+      ]
     },
     {
       "creator": "Admin",
@@ -305,7 +342,9 @@
       "latitude": 43.6041,
       "longitude": 1.4565,
       "nom": "DownTown Factory",
-      "sous_genre": ["BOITE"]
+      "sous_genre": [
+        "BOITE"
+      ]
     },
     {
       "creator": "Admin",
@@ -316,7 +355,11 @@
       "latitude": 43.6022,
       "longitude": 1.4411,
       "nom": "La Fiancée",
-      "sous_genre": ["BRUNCH", "BON_CAFE", "SALON_DE_THE"]
+      "sous_genre": [
+        "BRUNCH",
+        "BON_CAFE",
+        "SALON_DE_THE"
+      ]
     },
     {
       "creator": "Admin",
@@ -327,7 +370,10 @@
       "latitude": 43.6006,
       "longitude": 1.4407,
       "nom": "La Comtesse",
-      "sous_genre": ["TAPAS", "TERRASSE"]
+      "sous_genre": [
+        "TAPAS",
+        "TERRASSE"
+      ]
     },
     {
       "creator": "Admin",
@@ -338,7 +384,10 @@
       "latitude": 43.5999,
       "longitude": 1.4416,
       "nom": "The Four Monkeys",
-      "sous_genre": ["PUB", "BRUNCH"]
+      "sous_genre": [
+        "PUB",
+        "BRUNCH"
+      ]
     },
     {
       "creator": "Admin",
@@ -349,7 +398,9 @@
       "latitude": 43.5995,
       "longitude": 1.4451,
       "nom": "L'Ancienne Belgique",
-      "sous_genre": ["BRASSERIE"]
+      "sous_genre": [
+        "BRASSERIE"
+      ]
     },
     {
       "creator": "Admin",
@@ -360,7 +411,9 @@
       "latitude": 43.605,
       "longitude": 1.454,
       "nom": "L'heure Du Singe",
-      "sous_genre": ["COCKTAIL"]
+      "sous_genre": [
+        "COCKTAIL"
+      ]
     },
     {
       "creator": "Admin",
@@ -371,7 +424,11 @@
       "latitude": 43.607,
       "longitude": 1.4512,
       "nom": "Délirium Café",
-      "sous_genre": ["GUINGUETTE", "TERRASSE", "BRASSERIE"]
+      "sous_genre": [
+        "GUINGUETTE",
+        "TERRASSE",
+        "BRASSERIE"
+      ]
     },
     {
       "creator": "Admin",
@@ -382,7 +439,11 @@
       "latitude": 43.6058,
       "longitude": 1.4524,
       "nom": "Au Fût et à Mesure",
-      "sous_genre": ["TAPAS", "TERRASSE", "BRASSERIE"]
+      "sous_genre": [
+        "TAPAS",
+        "TERRASSE",
+        "BRASSERIE"
+      ]
     },
     {
       "creator": "Admin",
@@ -393,7 +454,10 @@
       "latitude": 43.6057,
       "longitude": 1.451,
       "nom": "La Maison",
-      "sous_genre": ["TAPAS", "COCKTAIL"]
+      "sous_genre": [
+        "TAPAS",
+        "COCKTAIL"
+      ]
     },
     {
       "creator": "Admin",
@@ -404,7 +468,10 @@
       "latitude": 43.6035,
       "longitude": 1.4363,
       "nom": "Le Jardin du Bar Basque",
-      "sous_genre": ["GUINGUETTE", "TERRASSE"]
+      "sous_genre": [
+        "GUINGUETTE",
+        "TERRASSE"
+      ]
     },
     {
       "creator": "Admin",
@@ -415,7 +482,9 @@
       "latitude": 43.5986,
       "longitude": 1.4331,
       "nom": "Solaneko",
-      "sous_genre": ["CUISINE_JAP"]
+      "sous_genre": [
+        "CUISINE_JAP"
+      ]
     },
     {
       "creator": "Admin",
@@ -426,7 +495,9 @@
       "latitude": 43.5969,
       "longitude": 1.4474,
       "nom": "Chez Navarre",
-      "sous_genre": ["CUISINE_TRAD"]
+      "sous_genre": [
+        "CUISINE_TRAD"
+      ]
     },
     {
       "creator": "Admin",
@@ -437,7 +508,10 @@
       "latitude": 43.6061,
       "longitude": 1.43,
       "nom": "Les passionnés",
-      "sous_genre": ["TAPAS", "CUISINE_BISTRO"]
+      "sous_genre": [
+        "TAPAS",
+        "CUISINE_BISTRO"
+      ]
     },
     {
       "creator": "Admin",
@@ -448,7 +522,9 @@
       "latitude": 43.6,
       "longitude": 1.4532,
       "nom": "Banh Mi",
-      "sous_genre": ["CUISINE_VIET"]
+      "sous_genre": [
+        "CUISINE_VIET"
+      ]
     },
     {
       "creator": "Admin",
@@ -459,7 +535,9 @@
       "latitude": 43.598,
       "longitude": 1.4488,
       "nom": "Le Cosy Caffé",
-      "sous_genre": ["CUISINE_TRAD"]
+      "sous_genre": [
+        "CUISINE_TRAD"
+      ]
     },
     {
       "creator": "Admin",
@@ -470,7 +548,9 @@
       "latitude": 43.5985,
       "longitude": 1.4471,
       "nom": "Le Place Mage",
-      "sous_genre": ["CUISINE_TRAD"]
+      "sous_genre": [
+        "CUISINE_TRAD"
+      ]
     },
     {
       "creator": "Admin",
@@ -478,10 +558,13 @@
       "description": "",
       "genre": "RESTAURANT",
       "id": "Thu, 21 Feb 2019 18:50:04 GMT--Chez Rosa",
-      "latitude": 43.5968,
-      "longitude": 1.4443,
+      "latitude": 43.5969,
+      "longitude": 1.4444,
       "nom": "Chez Rosa",
-      "sous_genre": ["TAPAS", "CUISINE_BISTRO"]
+      "sous_genre": [
+        "TAPAS",
+        "CUISINE_BISTRO"
+      ]
     },
     {
       "creator": "Admin",
@@ -492,7 +575,9 @@
       "latitude": 43.6088,
       "longitude": 1.4415,
       "nom": "Le Sept",
-      "sous_genre": ["CUISINE_GASTRO"]
+      "sous_genre": [
+        "CUISINE_GASTRO"
+      ]
     },
     {
       "creator": "Admin",
@@ -503,7 +588,9 @@
       "latitude": 43.5995,
       "longitude": 1.4409,
       "nom": "Py-r",
-      "sous_genre": ["CUISINE_GASTRO"]
+      "sous_genre": [
+        "CUISINE_GASTRO"
+      ]
     },
     {
       "creator": "Admin",
@@ -514,7 +601,9 @@
       "latitude": 43.6013,
       "longitude": 1.4527,
       "nom": "Chez Yannick",
-      "sous_genre": ["CUISINE_BISTRO"]
+      "sous_genre": [
+        "CUISINE_BISTRO"
+      ]
     },
     {
       "creator": "Admin",
@@ -525,7 +614,11 @@
       "latitude": 43.5997,
       "longitude": 1.4452,
       "nom": "Le Piège à Loups",
-      "sous_genre": ["TAPAS", "TERRASSE", "BAR_VIN"]
+      "sous_genre": [
+        "TAPAS",
+        "TERRASSE",
+        "BAR_VIN"
+      ]
     },
     {
       "creator": "Admin",
@@ -536,7 +629,9 @@
       "latitude": 43.5899,
       "longitude": 1.4459,
       "nom": "SHIN-YA RAMEN",
-      "sous_genre": ["CUISINE_JAP"]
+      "sous_genre": [
+        "CUISINE_JAP"
+      ]
     },
     {
       "creator": "Admin",
@@ -547,7 +642,9 @@
       "latitude": 43.5906,
       "longitude": 1.4451,
       "nom": "Les 2 Soeurs HOANG",
-      "sous_genre": ["CUISINE_VIET"]
+      "sous_genre": [
+        "CUISINE_VIET"
+      ]
     },
     {
       "creator": "Admin",
@@ -558,7 +655,9 @@
       "latitude": 43.6085,
       "longitude": 1.454,
       "nom": "Rooster & Beer",
-      "sous_genre": ["BRASSERIE"]
+      "sous_genre": [
+        "BRASSERIE"
+      ]
     },
     {
       "creator": "Admin",
@@ -569,7 +668,9 @@
       "latitude": 43.597,
       "longitude": 1.422,
       "nom": "L'Amoura Pizza",
-      "sous_genre": ["CUISINE_ITA"]
+      "sous_genre": [
+        "CUISINE_ITA"
+      ]
     },
     {
       "creator": "Admin",
@@ -580,7 +681,9 @@
       "latitude": 43.6028,
       "longitude": 1.442,
       "nom": "Forno Gusto",
-      "sous_genre": ["CUISINE_ITA"]
+      "sous_genre": [
+        "CUISINE_ITA"
+      ]
     },
     {
       "creator": "Admin",
@@ -591,7 +694,12 @@
       "latitude": 43.5915,
       "longitude": 1.445,
       "nom": "L'Abreuvoir Cave à Manger",
-      "sous_genre": ["TAPAS", "GUINGUETTE", "TERRASSE", "BAR_VIN"]
+      "sous_genre": [
+        "TAPAS",
+        "GUINGUETTE",
+        "TERRASSE",
+        "BAR_VIN"
+      ]
     },
     {
       "creator": "Admin",
@@ -602,7 +710,9 @@
       "latitude": 43.602,
       "longitude": 1.4409,
       "nom": "La Boca",
-      "sous_genre": ["TAPAS"]
+      "sous_genre": [
+        "TAPAS"
+      ]
     },
     {
       "creator": "Admin",
@@ -613,18 +723,365 @@
       "latitude": 43.6043,
       "longitude": 1.4485,
       "nom": "Les Boulistes",
-      "sous_genre": ["TAPAS", "TERRASSE"]
+      "sous_genre": [
+        "TAPAS",
+        "TERRASSE"
+      ]
     },
     {
-      "creator" : "Admin",
-      "date_creation" : "Mon, 01 Apr 2019 15:34:02 GMT",
-      "description" : "",
-      "genre" : "BAR",
-      "id" : "Mon, 01 Apr 2019 15:34:02 GMT--l'Echanson",
-      "latitude" : 43.5996,
-      "longitude" : 1.4441,
-      "nom" : "l'Echanson",
-      "sous_genre" : [ "TAPAS", "TERRASSE", "COCKTAIL" ]
+      "creator": "Admin",
+      "date_creation": "Mon, 01 Apr 2019 15:34:02 GMT",
+      "description": "",
+      "genre": "BAR",
+      "id": "Mon, 01 Apr 2019 15:34:02 GMT--l'Echanson",
+      "latitude": 43.5996,
+      "longitude": 1.4441,
+      "nom": "l'Echanson",
+      "sous_genre": [
+        "TAPAS",
+        "TERRASSE",
+        "COCKTAIL"
+      ]
+    },
+    {
+      "creator": "Admin",
+      "date_creation": "Tue, 21 May 2019 13:16:15 GMT",
+      "description": "",
+      "genre": "BAR",
+      "id": "Tue, 21 May 2019 13:16:15 GMT--Le Café des Artistes",
+      "latitude": 43.6019,
+      "longitude": 1.4393,
+      "nom": "Le Café des Artistes",
+      "sous_genre": [
+        "TERRASSE"
+      ]
+    },
+    {
+      "creator": "Admin",
+      "date_creation": "Tue, 21 May 2019 13:17:44 GMT",
+      "description": "",
+      "genre": "CAFE",
+      "id": "Tue, 21 May 2019 13:17:44 GMT--Flower’s Café",
+      "latitude": 43.603,
+      "longitude": 1.4451,
+      "nom": "Flower’s Café",
+      "sous_genre": [
+        "TERRASSE",
+        "BRUNCH",
+        "BON_CAFE",
+        "SALON_DE_THE"
+      ]
+    },
+    {
+      "creator": "Admin",
+      "date_creation": "Tue, 21 May 2019 13:18:47 GMT",
+      "description": "",
+      "genre": "BAR",
+      "id": "Tue, 21 May 2019 13:18:47 GMT--Le Florida",
+      "latitude": 43.6043,
+      "longitude": 1.4427,
+      "nom": "Le Florida",
+      "sous_genre": [
+        "TERRASSE"
+      ]
+    },
+    {
+      "creator": "Admin",
+      "date_creation": "Tue, 21 May 2019 13:21:30 GMT",
+      "description": "",
+      "genre": "BAR",
+      "id": "Tue, 21 May 2019 13:21:30 GMT--Le Bar du Matin",
+      "latitude": 43.598,
+      "longitude": 1.4444,
+      "nom": "Le Bar du Matin",
+      "sous_genre": [
+        "TERRASSE"
+      ]
+    },
+    {
+      "creator": "Admin",
+      "date_creation": "Tue, 21 May 2019 13:25:00 GMT",
+      "description": "",
+      "genre": "BAR",
+      "id": "Tue, 21 May 2019 13:25:00 GMT--Beaubeaubar",
+      "latitude": 43.6039,
+      "longitude": 1.4364,
+      "nom": "Beaubeaubar",
+      "sous_genre": [
+        "TAPAS",
+        "GUINGUETTE",
+        "TERRASSE"
+      ]
+    },
+    {
+      "creator": "Admin",
+      "date_creation": "Tue, 21 May 2019 13:28:03 GMT",
+      "description": "",
+      "genre": "RESTAURANT",
+      "id": "Tue, 21 May 2019 13:28:03 GMT--Tapéo",
+      "latitude": 43.598,
+      "longitude": 1.4423,
+      "nom": "Tapéo",
+      "sous_genre": [
+        "TAPAS"
+      ]
+    },
+    {
+      "creator": "Admin",
+      "date_creation": "Tue, 21 May 2019 13:30:27 GMT",
+      "description": "",
+      "genre": "RESTAURANT",
+      "id": "Tue, 21 May 2019 13:30:27 GMT--Pêcheurs de Sable",
+      "latitude": 43.6012,
+      "longitude": 1.4395,
+      "nom": "Pêcheurs de Sable",
+      "sous_genre": [
+        "TAPAS"
+      ]
+    },
+    {
+      "creator": "Admin",
+      "date_creation": "Tue, 21 May 2019 13:40:23 GMT",
+      "description": "",
+      "genre": "RESTAURANT",
+      "id": "Tue, 21 May 2019 13:40:23 GMT--Le Saint Sauvage",
+      "latitude": 43.6079,
+      "longitude": 1.4387,
+      "nom": "Le Saint Sauvage",
+      "sous_genre": [
+        "CUISINE_GASTRO"
+      ]
+    },
+    {
+      "creator": "Admin",
+      "date_creation": "Tue, 21 May 2019 13:41:31 GMT",
+      "description": "",
+      "genre": "RESTAURANT",
+      "id": "Tue, 21 May 2019 13:41:31 GMT--Evangelina",
+      "latitude": 43.6091,
+      "longitude": 1.4319,
+      "nom": "Evangelina",
+      "sous_genre": [
+        "TAPAS",
+        "CUISINE_TRAD",
+        "CUISINE_GASTRO"
+      ]
+    },
+    {
+      "creator": "Admin",
+      "date_creation": "Tue, 21 May 2019 13:42:39 GMT",
+      "description": "",
+      "genre": "RESTAURANT",
+      "id": "Tue, 21 May 2019 13:42:39 GMT--Pelouse interdite",
+      "latitude": 43.6307,
+      "longitude": 1.4325,
+      "nom": "Pelouse interdite",
+      "sous_genre": [
+        "CUISINE_TRAD",
+        "CUISINE_GASTRO"
+      ]
+    },
+    {
+      "creator": "Admin",
+      "date_creation": "Tue, 21 May 2019 13:52:16 GMT",
+      "description": "Petit bar alternatif presque secret tenu par un centenaire où c'est à toi d'apporter ta boisson !",
+      "genre": "BAR",
+      "id": "Tue, 21 May 2019 13:52:16 GMT--Bleu Bleu",
+      "latitude": 43.6325,
+      "longitude": 1.4044,
+      "nom": "Bleu Bleu",
+      "sous_genre": [
+        "GUINGUETTE"
+      ]
+    },
+    {
+      "creator": "Admin",
+      "date_creation": "Tue, 21 May 2019 13:55:09 GMT",
+      "description": "",
+      "genre": "RESTAURANT",
+      "id": "Tue, 21 May 2019 13:55:09 GMT--Meet The Meat",
+      "latitude": 43.6073,
+      "longitude": 1.4474,
+      "nom": "Meet The Meat",
+      "sous_genre": [
+        "CUISINE_TRAD"
+      ]
+    },
+    {
+      "creator": "Admin",
+      "date_creation": "Tue, 21 May 2019 13:56:31 GMT",
+      "description": "",
+      "genre": "RESTAURANT",
+      "id": "Tue, 21 May 2019 13:56:31 GMT--Bàcaro",
+      "latitude": 43.6011,
+      "longitude": 1.4573,
+      "nom": "Bàcaro",
+      "sous_genre": [
+        "CUISINE_BISTRO"
+      ]
+    },
+    {
+      "creator": "Admin",
+      "date_creation": "Tue, 21 May 2019 13:57:55 GMT",
+      "description": "",
+      "genre": "RESTAURANT",
+      "id": "Tue, 21 May 2019 13:57:55 GMT--Le Carbet d'Oc",
+      "latitude": 43.5981,
+      "longitude": 1.4443,
+      "nom": "Le Carbet d'Oc",
+      "sous_genre": [
+        "CUISINE_BISTRO"
+      ]
+    },
+    {
+      "creator": "Admin",
+      "date_creation": "Tue, 21 May 2019 14:00:13 GMT",
+      "description": "",
+      "genre": "BAR",
+      "id": "Tue, 21 May 2019 14:00:13 GMT--La Tantina De Burgos",
+      "latitude": 43.5964,
+      "longitude": 1.4412,
+      "nom": "La Tantina De Burgos",
+      "sous_genre": [
+        "TAPAS"
+      ]
+    },
+    {
+      "creator": "Admin",
+      "date_creation": "Tue, 21 May 2019 14:01:14 GMT",
+      "description": "",
+      "genre": "RESTAURANT",
+      "id": "Tue, 21 May 2019 14:01:14 GMT--Borriquito Loco",
+      "latitude": 43.5988,
+      "longitude": 1.4427,
+      "nom": "Borriquito Loco",
+      "sous_genre": [
+        "TAPAS"
+      ]
+    },
+    {
+      "creator": "Admin",
+      "date_creation": "Tue, 21 May 2019 14:03:24 GMT",
+      "description": "",
+      "genre": "BAR",
+      "id": "Tue, 21 May 2019 14:03:24 GMT--Fat Cat",
+      "latitude": 43.6052,
+      "longitude": 1.4439,
+      "nom": "Fat Cat",
+      "sous_genre": [
+        "COCKTAIL"
+      ]
+    },
+    {
+      "creator": "Admin",
+      "date_creation": "Tue, 21 May 2019 14:06:45 GMT",
+      "description": "",
+      "genre": "BAR",
+      "id": "Tue, 21 May 2019 14:06:45 GMT--N°5 Wine bar",
+      "latitude": 43.6004,
+      "longitude": 1.4424,
+      "nom": "N°5 Wine bar",
+      "sous_genre": [
+        "TAPAS",
+        "BAR_VIN"
+      ]
+    },
+    {
+      "creator": "Admin",
+      "date_creation": "Tue, 21 May 2019 14:09:03 GMT",
+      "description": "",
+      "genre": "BAR",
+      "id": "Tue, 21 May 2019 14:09:03 GMT--Au Père Louis",
+      "latitude": 43.6011,
+      "longitude": 1.4449,
+      "nom": "Au Père Louis",
+      "sous_genre": [
+        "TERRASSE",
+        "BAR_VIN"
+      ]
+    },
+    {
+      "creator": "Admin",
+      "date_creation": "Tue, 21 May 2019 14:10:53 GMT",
+      "description": "",
+      "genre": "RESTAURANT",
+      "id": "Tue, 21 May 2019 14:10:53 GMT--Maître Renard",
+      "latitude": 43.5968,
+      "longitude": 1.4444,
+      "nom": "Maître Renard",
+      "sous_genre": [
+        "TAPAS"
+      ]
+    },
+    {
+      "creator": "Admin",
+      "date_creation": "Tue, 21 May 2019 14:11:59 GMT",
+      "description": "",
+      "genre": "RESTAURANT",
+      "id": "Tue, 21 May 2019 14:11:59 GMT--La Braisière",
+      "latitude": 43.5966,
+      "longitude": 1.4444,
+      "nom": "La Braisière",
+      "sous_genre": [
+        "CUISINE_TRAD"
+      ]
+    },
+    {
+      "creator": "Admin",
+      "date_creation": "Tue, 21 May 2019 14:21:38 GMT",
+      "description": "",
+      "genre": "BAR",
+      "id": "Tue, 21 May 2019 14:21:38 GMT--Le Volcan",
+      "latitude": 43.5988,
+      "longitude": 1.4441,
+      "nom": "Le Volcan",
+      "sous_genre": [
+        "BAR_VIN"
+      ]
+    },
+    {
+      "creator": "Admin",
+      "date_creation": "Tue, 21 May 2019 14:23:45 GMT",
+      "description": "",
+      "genre": "BAR",
+      "id": "Tue, 21 May 2019 14:23:45 GMT--Barallel",
+      "latitude": 43.6013,
+      "longitude": 1.4413,
+      "nom": "Barallel",
+      "sous_genre": [
+        "BRASSERIE",
+        "BAR_VIN"
+      ]
+    },
+    {
+      "creator": "Admin",
+      "date_creation": "Tue, 21 May 2019 14:24:28 GMT",
+      "description": "",
+      "genre": "BAR",
+      "id": "Tue, 21 May 2019 14:24:28 GMT--L'alimentation -...",
+      "latitude": 43.6013,
+      "longitude": 1.442,
+      "nom": "L'alimentation - le bar à vins",
+      "sous_genre": [
+        "TAPAS",
+        "TERRASSE",
+        "BAR_VIN"
+      ]
+    },
+    {
+      "creator": "Admin",
+      "date_creation": "Tue, 21 May 2019 14:26:08 GMT",
+      "description": "",
+      "genre": "BAR",
+      "id": "Tue, 21 May 2019 14:26:08 GMT--Le Petit Vasco",
+      "latitude": 43.5987,
+      "longitude": 1.4328,
+      "nom": "Le Petit Vasco",
+      "sous_genre": [
+        "TAPAS",
+        "TERRASSE",
+        "BAR_VIN"
+      ]
     }
   ]
 }
