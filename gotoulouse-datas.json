@@ -1025,6 +1025,63 @@
       "sous_genre": [
         "CUISINE_TRAD"
       ]
+    },
+    {
+      "creator": "Admin",
+      "date_creation": "Tue, 21 May 2019 14:21:38 GMT",
+      "description": "",
+      "genre": "BAR",
+      "id": "Tue, 21 May 2019 14:21:38 GMT--Le Volcan",
+      "latitude": 43.5988,
+      "longitude": 1.4441,
+      "nom": "Le Volcan",
+      "sous_genre": [
+        "BAR_VIN"
+      ]
+    },
+    {
+      "creator": "Admin",
+      "date_creation": "Tue, 21 May 2019 14:23:45 GMT",
+      "description": "",
+      "genre": "BAR",
+      "id": "Tue, 21 May 2019 14:23:45 GMT--Barallel",
+      "latitude": 43.6013,
+      "longitude": 1.4413,
+      "nom": "Barallel",
+      "sous_genre": [
+        "BRASSERIE",
+        "BAR_VIN"
+      ]
+    },
+    {
+      "creator": "Admin",
+      "date_creation": "Tue, 21 May 2019 14:24:28 GMT",
+      "description": "",
+      "genre": "BAR",
+      "id": "Tue, 21 May 2019 14:24:28 GMT--L'alimentation -...",
+      "latitude": 43.6013,
+      "longitude": 1.442,
+      "nom": "L'alimentation - le bar à vins",
+      "sous_genre": [
+        "TAPAS",
+        "TERRASSE",
+        "BAR_VIN"
+      ]
+    },
+    {
+      "creator": "Admin",
+      "date_creation": "Tue, 21 May 2019 14:26:08 GMT",
+      "description": "",
+      "genre": "BAR",
+      "id": "Tue, 21 May 2019 14:26:08 GMT--Le Petit Vasco",
+      "latitude": 43.5987,
+      "longitude": 1.4328,
+      "nom": "Le Petit Vasco",
+      "sous_genre": [
+        "TAPAS",
+        "TERRASSE",
+        "BAR_VIN"
+      ]
     }
   ]
 }
