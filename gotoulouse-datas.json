@@ -1082,6 +1082,17 @@
         "TERRASSE",
         "BAR_VIN"
       ]
+    },
+    {
+      "creator": "Admin",
+      "date_creation": "Mon, 27 May 2019 12:29:55 GMT",
+      "description": "",
+      "genre": "BAR",
+      "id": "Mon, 27 May 2019 12:29:55 GMT--L'Anartiste",
+      "latitude": 43.5981,
+      "longitude": 1.4418,
+      "nom": "L'Anartiste",
+      "sous_genre": []
     }
   ]
 }
