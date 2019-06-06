@@ -1,6 +1,7 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
 
 import * as L from 'leaflet';
+import { LocationEvent, Marker } from 'leaflet';
 import 'leaflet.awesome-markers/dist/leaflet.awesome-markers';
 import 'leaflet.markercluster/dist/leaflet.markercluster';
 import { Subscription } from 'rxjs';
@@ -16,7 +17,7 @@ import { Place, EnumGenres } from '@app/shared/interface';
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.scss']
 })
-export class MapComponent implements OnInit, OnDestroy {
+export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
   public mymap: any;
   public lcontrol: any;
   public places: Place[];
@@ -38,10 +39,44 @@ export class MapComponent implements OnInit, OnDestroy {
     this.lcontrol = L.control.layers(this.controlService.getBaseLayers()).addTo(this.mymap);
   }
 
+  ngAfterViewInit() {
+    this.geolocate();
+  }
+
   ngOnDestroy() {
     this.placesSubscription.unsubscribe();
     this.bikeSubscription.unsubscribe();
     this.subwaySubscription.unsubscribe();
+  }
+
+  private geolocate() {
+    this.mymap.locate({
+      watch: true,
+      setView: true,
+      maxZoom: 18,
+      timeout: 60000,
+      enableHighAccuracy: true
+    });
+    this.mymap.on('locationfound', (e: LocationEvent) => this.onLocationFound(e));
+    this.mymap.on('locationerror', this.onLocationError);
+  }
+
+  private onLocationFound(e: LocationEvent) {
+    console.log('Location found');
+    let radius: number, locateMarker: Marker;
+    radius = e.accuracy / 2;
+    if (locateMarker) {
+      this.mymap.removeLayer(locateMarker);
+      locateMarker = null;
+    }
+    locateMarker = L.marker(e.latlng, {
+      icon: L.AwesomeMarkers.icon(this.markersService.getMarkerSymbol('here'))
+    });
+    locateMarker.addTo(this.mymap).bindPopup(`Vous êtes ici ! (à ${Math.round(radius)} mètres près)`);
+  }
+
+  private onLocationError() {
+    alert('Veuillez autoriser votre localisation svp =)');
   }
 
   private setMapParam() {
@@ -94,7 +129,6 @@ export class MapComponent implements OnInit, OnDestroy {
     return computedBikeSymbol;
   }
 
-  // tslint:disable-next-line:max-line-length
   private getBikePopup(
     nomStation: string,
     veloDispo: string,
