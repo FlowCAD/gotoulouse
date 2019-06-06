@@ -12,8 +12,8 @@ export class ControlService {
     'Imagery © <a href="http://mapbox.com">Mapbox</a>';
   private mbUrlBase = 'https://api.tiles.mapbox.com/v4/';
   private osmAttr = '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors';
-  private osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-  private osmHotUrl = 'http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png';
+  private osmUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+  private osmHotUrl = 'https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png';
 
   public get OSM(): any {
     return L.tileLayer(this.osmUrl, { attribution: this.osmAttr });
