@@ -55,8 +55,6 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
     console.log('geolocateUser');
     this.mymap.locate({
       watch: true,
-      setView: true,
-      maxZoom: 18,
       timeout: 60000,
       enableHighAccuracy: true
     });
@@ -72,6 +70,8 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
     console.log('Location found');
     if (this.locationMarker) {
       this.mymap.removeLayer(this.locationMarker);
+    } else {
+      this.mymap.flyTo(e.latlng, 18);
     }
     let radius: number;
     radius = e.accuracy / 2;
