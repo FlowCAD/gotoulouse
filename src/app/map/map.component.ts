@@ -40,6 +40,10 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
     this.geolocationService.listen().subscribe((loc: L.LocationEvent) => {
       this.flyTo(loc.latlng, MapComponent.SCALE_VALUE_FLYTO);
     });
+
+    this.controlService.listen().subscribe((baseLayer: L.TileLayer) => {
+      this.setBaseLayer(baseLayer);
+    });
   }
 
   ngOnInit() {
@@ -57,6 +61,10 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
     this.placesSubscription.unsubscribe();
     this.bikeSubscription.unsubscribe();
     this.subwaySubscription.unsubscribe();
+  }
+
+  private setBaseLayer(layer: any) {
+    layer.addTo(this.mymap);
   }
 
   private geolocateUser() {

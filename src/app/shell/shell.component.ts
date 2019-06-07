@@ -8,6 +8,7 @@ import { AuthenticationService, I18nService } from '@app/core';
 import * as L from 'leaflet';
 
 import { GeolocationService } from '@app/shared/services/geolocation.service';
+import { ControlService } from '@app/shared/services/control.service';
 
 @Component({
   selector: 'app-shell',
@@ -18,10 +19,9 @@ export class ShellComponent implements OnInit {
   @Output()
   locateUser: EventEmitter<L.LocationEvent> = new EventEmitter();
 
-  layers: {}[] = [
+  public layers: {}[] = [
     { value: 'OSM', viewValue: 'Open Street Map' },
-    { value: 'OSMHot', viewValue: 'Open Street Map Hot' },
-    { value: 'PlanGris', viewValue: 'Plan Gris' },
+    { value: 'OSMHot', viewValue: 'Nice OSM ;)' },
     { value: 'Plan', viewValue: 'Plan' },
     { value: 'Sat', viewValue: 'Vue Satellite' }
   ];
@@ -32,7 +32,8 @@ export class ShellComponent implements OnInit {
     private media: ObservableMedia,
     private authenticationService: AuthenticationService,
     private i18nService: I18nService,
-    private geolocationService: GeolocationService
+    private geolocationService: GeolocationService,
+    private controlService: ControlService
   ) {}
 
   ngOnInit() {}
@@ -50,7 +51,7 @@ export class ShellComponent implements OnInit {
   }
 
   public changeBackgroundLayer(layer: string): void {
-    console.log('Layer choosen: ', layer);
+    this.controlService.changeLayer(layer);
   }
 
   get username(): string | null {
