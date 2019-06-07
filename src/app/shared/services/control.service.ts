@@ -20,16 +20,6 @@ export class ControlService {
   private osmUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
   private osmHotUrl = 'https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png';
 
-  public getBaseLayers() {
-    const baseMaps = {
-      OpenStreetMap: this.OSM,
-      'OSM Hot': this.OSMHot,
-      Plan: this.MBStreets,
-      Satellite: this.MBSat
-    };
-    return baseMaps;
-  }
-
   public listen(): Observable<L.TileLayer> {
     return this.baseLayerSubject.asObservable();
   }
