@@ -18,7 +18,8 @@ import { Place, EnumGenres } from '@app/shared/interface';
   styleUrls: ['./map.component.scss']
 })
 export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
-  public static readonly SCALE_VALUE_FLYTO: number = 18;
+  public static readonly SCALE_VALUE_MINZOOM: number = 12;
+  public static readonly SCALE_VALUE_MAXZOOM: number = 18;
 
   public mymap: L.Map;
   public lcontrol: L.Control;
@@ -37,16 +38,19 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
     private dataService: DataService,
     private geolocationService: GeolocationService
   ) {
+    this.controlService.listen().subscribe((baseLayer: L.TileLayer) => {
+      this.setBaseLayer(baseLayer);
+    });
+
     this.geolocationService.listen().subscribe((loc: L.LocationEvent) => {
-      this.flyTo(loc.latlng, MapComponent.SCALE_VALUE_FLYTO);
+      this.flyTo(loc.latlng, MapComponent.SCALE_VALUE_MAXZOOM);
     });
   }
 
   ngOnInit() {
     this.setMapParam();
+    this.setBaseLayer(this.controlService.OSM);
     this.getDatas();
-    this.lcontrol = L.control.layers(this.controlService.getBaseLayers()).addTo(this.mymap);
-    this.geolocateUser();
   }
 
   ngAfterViewInit() {
@@ -59,12 +63,8 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
     this.subwaySubscription.unsubscribe();
   }
 
-  private geolocateUser() {
-    this.mymap.locate({
-      watch: true,
-      timeout: 60000,
-      enableHighAccuracy: true
-    });
+  private setBaseLayer(layer: L.TileLayer) {
+    layer.addTo(this.mymap);
   }
 
   private onGeoloc() {
@@ -77,7 +77,7 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
     if (this.locationMarker) {
       this.mymap.removeLayer(this.locationMarker);
     } else {
-      this.flyTo(e.latlng, MapComponent.SCALE_VALUE_FLYTO);
+      this.flyTo(e.latlng, MapComponent.SCALE_VALUE_MAXZOOM);
     }
     let radius: number;
     radius = e.accuracy / 2;
@@ -96,13 +96,19 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   private setMapParam() {
-    const northEastBound = L.latLng(43.75, 1.76),
-      southWestBound = L.latLng(43.43, 1.02),
-      bounds = L.latLngBounds(northEastBound, southWestBound);
-    this.mymap = L.map('map', { minZoom: 12, maxZoom: 18 })
+    const bounds = L.latLngBounds(L.latLng(43.75, 1.76), L.latLng(43.43, 1.02));
+    this.mymap = L.map('map', {
+      minZoom: MapComponent.SCALE_VALUE_MINZOOM,
+      maxZoom: MapComponent.SCALE_VALUE_MAXZOOM,
+      zoomControl: false
+    })
       .setView([43.6, 1.44], 13)
-      .setMaxBounds(bounds);
-    this.controlService.OSM.addTo(this.mymap);
+      .setMaxBounds(bounds)
+      .locate({
+        watch: true,
+        timeout: 60000,
+        enableHighAccuracy: true
+      });
   }
 
   private getDatas() {
