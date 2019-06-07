@@ -99,7 +99,7 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
     const northEastBound = L.latLng(43.75, 1.76),
       southWestBound = L.latLng(43.43, 1.02),
       bounds = L.latLngBounds(northEastBound, southWestBound);
-    this.mymap = L.map('map', { minZoom: 12, maxZoom: 18 })
+    this.mymap = L.map('map', { minZoom: 12, maxZoom: 18, zoomControl: false })
       .setView([43.6, 1.44], 13)
       .setMaxBounds(bounds);
     this.controlService.OSM.addTo(this.mymap);
