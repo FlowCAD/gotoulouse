@@ -1,7 +1,6 @@
 import { Component, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
 
 import * as L from 'leaflet';
-import { LocationEvent, Marker, Map, Control } from 'leaflet';
 import 'leaflet.awesome-markers/dist/leaflet.awesome-markers';
 import 'leaflet.markercluster/dist/leaflet.markercluster';
 import { Subscription } from 'rxjs';
@@ -10,6 +9,7 @@ import { OpendataService } from '@app/shared/services/opendata.service';
 import { MarkersService } from '@app/shared/services/markers.service';
 import { ControlService } from '@app/shared/services/control.service';
 import { DataService } from '@app/shared/services/data.service';
+import { GeolocationService } from '@app/shared/services/geolocation.service';
 import { Place, EnumGenres } from '@app/shared/interface';
 
 @Component({
@@ -18,11 +18,14 @@ import { Place, EnumGenres } from '@app/shared/interface';
   styleUrls: ['./map.component.scss']
 })
 export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
-  public mymap: Map;
-  public lcontrol: Control;
+  public static readonly SCALE_VALUE_FLYTO: number = 18;
+
+  public mymap: L.Map;
+  public lcontrol: L.Control;
   public places: Place[];
   public enumGenres = EnumGenres;
-  public locationMarker: Marker;
+  public locationMarker: L.Marker;
+
   private placesSubscription: Subscription;
   private subwaySubscription: Subscription;
   private bikeSubscription: Subscription;
@@ -31,8 +34,13 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
     private opendataService: OpendataService,
     private markersService: MarkersService,
     private controlService: ControlService,
-    private dataService: DataService
-  ) {}
+    private dataService: DataService,
+    private geolocationService: GeolocationService
+  ) {
+    this.geolocationService.listen().subscribe((loc: L.LocationEvent) => {
+      this.flyTo(loc.latlng, MapComponent.SCALE_VALUE_FLYTO);
+    });
+  }
 
   ngOnInit() {
     this.setMapParam();
@@ -42,7 +50,7 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit() {
-    this.setGeolocateMarker();
+    this.onGeoloc();
   }
 
   ngOnDestroy() {
@@ -52,7 +60,6 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   private geolocateUser() {
-    console.log('geolocateUser');
     this.mymap.locate({
       watch: true,
       timeout: 60000,
@@ -60,18 +67,17 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
     });
   }
 
-  private setGeolocateMarker() {
-    console.log('setGeolocateMarker');
-    this.mymap.on('locationfound', (e: LocationEvent) => this.onLocationFound(e));
+  private onGeoloc() {
+    this.mymap.on('locationfound', (e: L.LocationEvent) => this.setGeolocateMarker(e));
     this.mymap.on('locationerror', this.onLocationError);
   }
 
-  private onLocationFound(e: LocationEvent) {
-    console.log('Location found');
+  private setGeolocateMarker(e: L.LocationEvent) {
+    this.geolocationService.location = e;
     if (this.locationMarker) {
       this.mymap.removeLayer(this.locationMarker);
     } else {
-      this.mymap.flyTo(e.latlng, 18);
+      this.flyTo(e.latlng, MapComponent.SCALE_VALUE_FLYTO);
     }
     let radius: number;
     radius = e.accuracy / 2;
@@ -81,8 +87,12 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
     this.locationMarker.addTo(this.mymap).bindPopup(`Vous êtes ici ! (à ${Math.round(radius)} mètres près)`);
   }
 
-  private onLocationError() {
+  private onLocationError(e: L.LocationEvent) {
     alert('Veuillez autoriser votre localisation svp =)');
+  }
+
+  private flyTo(coord: L.LatLngExpression, scale: number) {
+    this.mymap.flyTo(coord, scale);
   }
 
   private setMapParam() {
