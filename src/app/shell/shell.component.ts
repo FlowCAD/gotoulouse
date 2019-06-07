@@ -46,6 +46,14 @@ export class ShellComponent implements OnInit {
     this.authenticationService.logout().subscribe(() => this.router.navigate(['/login'], { replaceUrl: true }));
   }
 
+  public filterData(): void {
+    console.log('Not yet implemented');
+  }
+
+  public displayOrHideData(): void {
+    console.log('Not yet implemented');
+  }
+
   public geolocateMe(): void {
     this.geolocationService.locate();
   }

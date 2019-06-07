@@ -64,6 +64,12 @@
         </button>
         <span>{{ title }}</span>
         <div fxFlex></div>
+        <button class="menu-button" mat-icon-button (click)="displayOrHideData()" disabled>
+          <mat-icon>edit_location</mat-icon>
+        </button>
+        <button class="menu-button" mat-icon-button (click)="filterData()" disabled>
+          <mat-icon>filter_list</mat-icon>
+        </button>
         <button class="menu-button" mat-icon-button (click)="geolocateMe()">
           <mat-icon>my_location</mat-icon>
         </button>
