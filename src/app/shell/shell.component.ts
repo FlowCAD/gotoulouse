@@ -1,9 +1,13 @@
 import { Title } from '@angular/platform-browser';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { ObservableMedia } from '@angular/flex-layout';
 
 import { AuthenticationService, I18nService } from '@app/core';
+
+import * as L from 'leaflet';
+
+import { GeolocationService } from '@app/shared/services/geolocation.service';
 
 @Component({
   selector: 'app-shell',
@@ -11,12 +15,16 @@ import { AuthenticationService, I18nService } from '@app/core';
   styleUrls: ['./shell.component.scss']
 })
 export class ShellComponent implements OnInit {
+  @Output()
+  locateUser: EventEmitter<L.LocationEvent> = new EventEmitter();
+
   constructor(
     private router: Router,
     private titleService: Title,
     private media: ObservableMedia,
     private authenticationService: AuthenticationService,
-    private i18nService: I18nService
+    private i18nService: I18nService,
+    private geolocationService: GeolocationService
   ) {}
 
   ngOnInit() {}
@@ -27,6 +35,10 @@ export class ShellComponent implements OnInit {
 
   logout() {
     this.authenticationService.logout().subscribe(() => this.router.navigate(['/login'], { replaceUrl: true }));
+  }
+
+  public geolocateMe(): void {
+    this.geolocationService.locate();
   }
 
   get username(): string | null {
