@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
 
 import * as L from 'leaflet';
-import { LocationEvent, Marker } from 'leaflet';
+import { LocationEvent, Marker, Map, Control } from 'leaflet';
 import 'leaflet.awesome-markers/dist/leaflet.awesome-markers';
 import 'leaflet.markercluster/dist/leaflet.markercluster';
 import { Subscription } from 'rxjs';
@@ -18,10 +18,11 @@ import { Place, EnumGenres } from '@app/shared/interface';
   styleUrls: ['./map.component.scss']
 })
 export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
-  public mymap: any;
-  public lcontrol: any;
+  public mymap: Map;
+  public lcontrol: Control;
   public places: Place[];
   public enumGenres = EnumGenres;
+  public locationMarker: Marker;
   private placesSubscription: Subscription;
   private subwaySubscription: Subscription;
   private bikeSubscription: Subscription;
@@ -37,10 +38,11 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
     this.setMapParam();
     this.getDatas();
     this.lcontrol = L.control.layers(this.controlService.getBaseLayers()).addTo(this.mymap);
+    this.geolocateUser();
   }
 
   ngAfterViewInit() {
-    this.geolocate();
+    this.setGeolocateMarker();
   }
 
   ngOnDestroy() {
@@ -49,7 +51,8 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
     this.subwaySubscription.unsubscribe();
   }
 
-  private geolocate() {
+  private geolocateUser() {
+    console.log('geolocateUser');
     this.mymap.locate({
       watch: true,
       setView: true,
@@ -57,22 +60,25 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
       timeout: 60000,
       enableHighAccuracy: true
     });
+  }
+
+  private setGeolocateMarker() {
+    console.log('setGeolocateMarker');
     this.mymap.on('locationfound', (e: LocationEvent) => this.onLocationFound(e));
     this.mymap.on('locationerror', this.onLocationError);
   }
 
   private onLocationFound(e: LocationEvent) {
     console.log('Location found');
-    let radius: number, locateMarker: Marker;
-    radius = e.accuracy / 2;
-    if (locateMarker) {
-      this.mymap.removeLayer(locateMarker);
-      locateMarker = null;
+    if (this.locationMarker) {
+      this.mymap.removeLayer(this.locationMarker);
     }
-    locateMarker = L.marker(e.latlng, {
+    let radius: number;
+    radius = e.accuracy / 2;
+    this.locationMarker = L.marker(e.latlng, {
       icon: L.AwesomeMarkers.icon(this.markersService.getMarkerSymbol('here'))
     });
-    locateMarker.addTo(this.mymap).bindPopup(`Vous êtes ici ! (à ${Math.round(radius)} mètres près)`);
+    this.locationMarker.addTo(this.mymap).bindPopup(`Vous êtes ici ! (à ${Math.round(radius)} mètres près)`);
   }
 
   private onLocationError() {
