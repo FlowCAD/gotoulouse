@@ -18,6 +18,14 @@ export class ShellComponent implements OnInit {
   @Output()
   locateUser: EventEmitter<L.LocationEvent> = new EventEmitter();
 
+  layers: {}[] = [
+    { value: 'OSM', viewValue: 'Open Street Map' },
+    { value: 'OSMHot', viewValue: 'Open Street Map Hot' },
+    { value: 'PlanGris', viewValue: 'Plan Gris' },
+    { value: 'Plan', viewValue: 'Plan' },
+    { value: 'Sat', viewValue: 'Vue Satellite' }
+  ];
+
   constructor(
     private router: Router,
     private titleService: Title,
@@ -39,6 +47,10 @@ export class ShellComponent implements OnInit {
 
   public geolocateMe(): void {
     this.geolocationService.locate();
+  }
+
+  public changeBackgroundLayer(layer: string): void {
+    console.log('Layer choosen: ', layer);
   }
 
   get username(): string | null {
