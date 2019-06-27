@@ -63,8 +63,28 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
     this.subwaySubscription.unsubscribe();
   }
 
-  private setBaseLayer(layer: L.TileLayer) {
+  private setBaseLayer(myLayer: L.TileLayer) {
+    let notLoaded = true,
+      myKey = null;
+
+    if (this.mymap._layers) {
+      console.log('this.mymap._layers: ', this.mymap._layers);
+      for (let lay in this.mymap._layers) {
+        if (this.mymap._layers[lay]._url === layer._url) {
+          myKey = lay;
+          notLoaded = false;
+          break;
+        }
+      }
+      if (!notLoaded) {
+        this.mymap.removeLayer(this.mymap._layers[myKey]);
+      }
+    }
     layer.addTo(this.mymap);
+
+    // this.mymap.eachLayer((layer: L.Layer) => {
+    //   console.log('layer: ', layer);
+    // });
   }
 
   private onGeoloc() {
